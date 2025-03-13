@@ -196,6 +196,24 @@ footer {
     color: #ccc; /* nieco jaśniejszy szary odcień */
   }
 
+/* Tło i kolor tekstu w trybie ciemnym wewnątrz .container */
+.dark-mode .container_karuzela {
+    background-color: #333; /* ciemne tło */
+    color: #eee;           /* jasny tekst */
+  }
+  
+  /* Nagłówki wewnątrz kontenera w trybie ciemnym */
+  .dark-mode .container_karuzela h2 {
+    color: #fff;
+  }
+  
+  /* Etykiety, paragrafy i inne elementy wewnątrz kontenera */
+  .dark-mode .container_karuzela label,
+  .dark-mode .container_karuzela p {
+    color: #ccc; /* nieco jaśniejszy szary odcień */
+  }
+
+
   .dark-mode input[type="date"] {
     background-color: #444; /* tło pola */
     color: #eee;           /* kolor czcionki */
@@ -287,3 +305,47 @@ footer {
     right: 20px;
   }
   
+  /* ============================================
+   RESPONSYWNOŚĆ KARUZELI NA TELEFON 
+============================================ */
+
+@media (max-width: 850px) {
+    .carousel {
+        width: 95%;
+        height: 250px;
+    }
+
+    .slide {
+        width: 80%;
+        height: 100%;
+    }
+
+    .prev {
+        left: 0%;
+        opacity: 0;
+    }
+
+    .next {
+        left: 100%;
+        opacity: 0;
+    }
+
+    .current {
+        left: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .carousel button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    #prev {
+        left: 0;
+    }
+
+    #next {
+        right: 0;
+    }
+}
