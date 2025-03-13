@@ -97,11 +97,26 @@
     transition: background-color 0.3s ease;
     margin: 10px auto;    /* automatyczne marginesy – w trybie inline-block nie zawsze się przydadzą,
                              ale możesz zostawić jeśli chcesz np. odstęp w pionie */
+                               /* Płynne przejście transformacji */
+  transition: transform 0.3s ease; 
   }
   .option:hover,
   .survey-button:hover,
   .reservation-button:hover {
     background-color: #45a049;
+    transform: scale(1.1); /* zmień wartość na większą lub mniejszą, np. 1.05, 1.2 */
+  }
+
+  /* Styl dla aktywnego przycisku rezerwacji, który powiększa się przy najechaniu */
+.reservation-button:enabled:hover {
+    transform: scale(1.1); /* Powiększenie przycisku */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Dla przycisku wyłączonego (disabled) – opcjonalnie: zmniejszona przezroczystość i zmiana kursora */
+  .reservation-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
   
   .container {
