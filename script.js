@@ -95,11 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			e.preventDefault();
 
 			const baseUrl =
-				"https://docs.google.com/forms/d/e/1FAIpQLScAtUmm8EZX9dqNX0KWl1UdSoW1pZOB1Gf9SfK_BtmpbTvGMg/viewform?usp=pp_url"; // Twój link Google Forms
-			const finalUrl = `${baseUrl}&entry.1636713435=${encodeURIComponent(
+				"https://docs.google.com/forms/d/e/1FAIpQLScAtUmm8EZX9dqNX0KWl1UdSoW1pZOB1Gf9SfK_BtmpbTvGMg/viewform?usp=pp_url";
+			const finalUrl = `${baseUrl}&entry.804956421=${encodeURIComponent(
 				startDateInput.value
-			)}&entry.1731149603=${encodeURIComponent(endDateInput.value)}`;
-
+			)}&entry.1257348320=${encodeURIComponent(endDateInput.value)}`;
 			window.open(finalUrl, "_blank");
 		});
 	}
