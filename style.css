@@ -1,33 +1,149 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* 
+   1. Resetowanie marginesów/paddingu i box-sizing
+   (opcjonalnie, ale często przydatne, by zachować przewidywalny wygląd).
+*/
+* {
     margin: 0;
-    background-color: #f0f0f0;
-}
-
-.container {
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 30px;
-}
-
-.button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 32px;
-    font-size: 16px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 
+     2. Podstawowe style BODY:
+     - Kluczowy jest 'text-align: center;' by centrum było domyślne dla tekstu i elementów inline.
+     - background i color pozostają dowolne.
+  */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+    text-align: center;    /* dzięki temu CAŁA treść tekstowa będzie wyśrodkowana */
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  /* 3. Nagłówek */
+  header {
+    background-color: #417f7a;
+    color: #fff;
+    padding: 20px;
+    /* text-align: center; - nie jest konieczne, bo już w body jest centrowanie */
+  }
+  
+  /* 4. Logo (obrazek) – by było wyśrodkowane jako block */
+  .logo {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* 5. Nawigacja i przycisk trybu ciemnego */
+  nav {
+    margin-top: 10px; /* odstęp w pionie */
+  }
+  
+  /* Przycisk trybu ciemnego */
+  #dark-mode-button {
     cursor: pointer;
-    margin: 10px;
-    border-radius: 5px;
+    border: none;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    background-color: #444;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    /* Można dodać display: inline-block, by kontrolować szerokość */
+    display: inline-block;
+  }
+  #dark-mode-button:hover {
+    background-color: #666;
+  }
+  
+  /* 6. Główna część strony */
+  main {
+    padding: 20px;
+    /* text-align: center; - dziedziczone z body */
+  }
+  
+  /* Sekcje – odstępy pomiędzy blokami */
+  section {
+    margin-bottom: 20px;
+  }
+  section h2 {
+    margin-bottom: 10px;
+  }
+  
+  /* 7. Stopka – centrowanie dziedziczone, więc wystarczy marginesy itp. */
+  footer {
+    margin: 20px 0;
+    color: #666;
+  }
+  
+  /* 8. Element do komunikatu o otwarciu/zamknięciu */
+  #open-status {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* 9. Podstawowe style przycisków/linków (Hotel, Spa, Ankieta, Rezerwacja) */
+  .option,
+  .survey-button,
+  .reservation-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
     text-decoration: none;
-}
-
-.button:hover {
+    display: inline-block; /* aby szerokość dopasowywała się do treści i centrowała */
+    transition: background-color 0.3s ease;
+    margin: 10px auto;    /* automatyczne marginesy – w trybie inline-block nie zawsze się przydadzą,
+                             ale możesz zostawić jeśli chcesz np. odstęp w pionie */
+  }
+  .option:hover,
+  .survey-button:hover,
+  .reservation-button:hover {
     background-color: #45a049;
-}
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto; /* wyśrodkowanie container w poziomie */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+  }
+  
+  /* =========================
+     10. TRYB CIEMNY
+  ========================= */
+  .dark-mode {
+    background-color: #222; 
+    color: #eee;
+  }
+  
+  /* Nagłówek, stopka w trybie ciemnym */
+  .dark-mode header,
+  .dark-mode footer {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  /* Przycisk w trybie ciemnym */
+  .dark-mode #dark-mode-button {
+    background-color: #555;
+  }
+  .dark-mode #dark-mode-button:hover {
+    background-color: #777;
+  }
+  
+  /* Przyciski / linki w trybie ciemnym */
+  .dark-mode .option,
+  .dark-mode .survey-button,
+  .dark-mode .reservation-button {
+    background-color: #444;
+  }
+  .dark-mode .option:hover,
+  .dark-mode .survey-button:hover,
+  .dark-mode .reservation-button:hover {
+    background-color: #666;
+  }
+  

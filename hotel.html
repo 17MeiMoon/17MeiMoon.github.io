@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Barbara Rokicińska">
+
+  <meta name="keywords"
+        content="jorguś, hotel dla zwierząt, spa dla zwierząt, opieka nad zwierzętami, pielęgnacja zwierząt, relaks dla zwierząt">
+  <meta name="description"
+        content="Hotel i spa dla zwierząt Jorguś – luksusowa opieka, pielęgnacja i relaks dla Twojego pupila. Zapewniamy komfortowy pobyt, profesjonalne zabiegi i troskliwą opiekę.">
+
+  <title>Jorguś - Hotel & Spa Twojego Psa</title>
+  <!-- Główny plik CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome (ikonki księżyca/słońca) -->
+  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <h1>Witamy w sekcji Hotel</h1>
-    <p>Tutaj znajdziesz informacje o dostępnych hotelach.</p>
-    <p><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform?embedded=true" width="640" height="959" frameborder="0" marginheight="0" marginwidth="0">Ładuję…</iframe></p>
+  <header>
+    <a href="index.html">
+      <img src="images/logo.png" alt="Logo JORGUŚ Sp. z o.o." class="logo" />
+    </a>
+    <h1>Jorguś - Witamy w sekcji Hotel</h1>
+
+    <!-- Nawigacja z przyciskiem trybu jasny/ciemny -->
+    <nav>
+      <button id="dark-mode-button">
+        <!-- Domyślnie: ikona księżyca i napis "Tryb ciemny" -->
+        <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
+        <span id="dark-mode-text">Tryb ciemny</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Sekcja Ankiety -->
+      <section>
+        <h2>Pierwsza wizyta? Wypełnij ankietę o twoim pupilu</h2>
+        <p>Aby lepiej zadbać o naszego Gościa, prosimy o wypełnienie krótkiej ankiety.</p>
+        <p>Wypełnienie formularza pozwoli nam poznać zwyczaje oraz potrzeby Twojego zwierzaka.</p>
+        <a class="survey-button"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform?usp=sf_link"
+           target="_blank">
+          Przejdź do Ankiety
+        </a>
+      </section>
+
+      <!-- Sekcja Rezerwacji -->
+      <section>
+        <h2>Rezerwacja Pobytu</h2>
+        <form id="reservation-form">
+          <label for="start-date">Data przyjazdu:</label>
+          <input type="date" id="start-date" name="start-date" required>
+
+          <br><br>
+          <label for="end-date">Data wyjazdu:</label>
+          <input type="date" id="end-date" name="end-date" required>
+
+          <!-- Komunikat o niepoprawnych datach -->
+          <p id="date-feedback" style="color: red; font-weight: bold;"></p>
+          <!-- Informacja o liczbie noclegów -->
+          <p id="days-count" style="font-style: italic;"></p>
+
+          <br>
+          <button type="submit" class="reservation-button" disabled>Zarezerwuj</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <!-- ID "current-year" dla automatycznej aktualizacji roku (opcjonalnie) -->
+    <p>&copy; <span id="current-year">2025</span> JORGUŚ Sp. z o.o.</p>
+  </footer>
+
+  <!-- Podłączenie zewnętrznego pliku JS z logiką (z atrybutem defer) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
