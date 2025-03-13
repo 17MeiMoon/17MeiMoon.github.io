@@ -5,89 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Barbara Rokicińska">
-
     <meta name="keywords"
         content="jorguś, hotel dla zwierząt, spa dla zwierząt, opieka nad zwierzętami, pielęgnacja zwierząt, relaks dla zwierząt">
     <meta name="description"
         content="Hotel i spa dla zwierząt Jorguś – luksusowa opieka, pielęgnacja i relaks dla Twojego pupila. Zapewniamy komfortowy pobyt, profesjonalne zabiegi i troskliwą opiekę.">
 
     <title>Jorguś - Hotel & Spa Twojego Psa</title>
-    <!-- Główny plik CSS -->
+
+    <!-- Główny arkusz stylów CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome (ikonki księżyca/słońca) -->
+    <!-- Ikony Font Awesome (księżyc/słońce) -->
     <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+    <!-- Nagłówek z logo oraz przyciskiem trybu jasny/ciemny -->
     <header>
         <a href="index.html">
             <img src="images/logo.png" alt="Logo JORGUŚ Sp. z o.o." class="logo" />
         </a>
         <h1>Jorguś - Witamy w sekcji Hotel</h1>
 
-        <!-- Nawigacja z przyciskiem trybu jasny/ciemny -->
+        <!-- Nawigacja z przyciskiem przełączania trybu -->
         <nav>
             <button id="dark-mode-button">
-                <!-- Domyślnie: ikona księżyca i napis "Tryb ciemny" -->
                 <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
                 <span id="dark-mode-text">Tryb ciemny</span>
             </button>
         </nav>
     </header>
 
+    <!-- Główna treść strony -->
     <main>
         <div class="container">
-            <!-- Sekcja Ankiety -->
+
+            <!-- Sekcja ankiety o zwierzaku -->
             <section>
-                <h2>Pierwsza wizyta? Wypełnij ankietę o twoim pupilu</h2>
+                <h2>Pierwsza wizyta? Wypełnij ankietę o Twoim pupilu</h2>
                 <p>Aby lepiej zadbać o naszego Gościa, prosimy o wypełnienie krótkiej ankiety.</p>
-                <p>Wypełnienie formularza pozwoli nam poznać zwyczaje oraz potrzeby Twojego zwierzaka.</p>
-                <a class="survey-button"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform?usp=sf_link"
-                    target="_blank">
-                    Przejdź do Ankiety
-                </a>
+                <p>Pozwoli nam to poznać zwyczaje oraz potrzeby Twojego zwierzaka.</p>
+                <a class="survey-button" href="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform?usp=sf_link"
+                    target="_blank">Przejdź do Ankiety</a>
             </section>
 
-            <!-- Sekcja Rezerwacji -->
+            <!-- Sekcja formularza rezerwacji pobytu -->
             <section>
                 <h2>Rezerwacja Pobytu</h2>
                 <form id="reservation-form">
                     <label for="start-date">Data przyjazdu:</label>
-                    <input type="date" id="start-date" name="start-date" required>
-
+                    <input type="date" id="start-date" required>
+                
                     <br><br>
+                
                     <label for="end-date">Data wyjazdu:</label>
                     <input type="date" id="end-date" name="end-date" required>
-
-                    <!-- Komunikat o niepoprawnych datach -->
-                    <p id="date-feedback" style="color: red; font-weight: bold;"></p>
-                    <!-- Informacja o liczbie noclegów -->
-                    <p id="days-count" style="font-style: italic;"></p>
-
-                    <br>
+                
+                    <div id="date-feedback"></div>
+                    <div id="days-count"></div>
+                
                     <button type="submit" class="reservation-button" disabled>Zarezerwuj</button>
                 </form>
             </section>
+
+            <!-- Sekcja z mapą Google -->
             <section>
-                <div class="map-container">
-                    <h2>Nasza lokalizacja</h2>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020.0615827251422!2d21.14871218862323!3d52.134807447644384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192d3347eabe0d%3A0x932e598e24beddec!2sJorgu%C5%9B%20hotel%20twojego%20pupila!5e0!3m2!1spl!2spl!4v1741888789629!5m2!1spl!2spl"
-                        style="border:0; width: 100%; height: 450px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h2>Nasza lokalizacja</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020.0615827251422!2d21.14871218862323!3d52.134807447644384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192d3347eabe0d%3A0x932e598e24beddec!2sJorgu%C5%9B%20hotel%20twojego%20pupila!5e0!3m2!1spl!2spl!4v1741888789629!5m2!1spl!2spl"
+                    style="border:0; width: 100%; height: 450px;" allowfullscreen loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
-        </div>
+
         </div>
     </main>
 
+    <!-- Stopka z automatycznym rokiem -->
     <footer>
-        <!-- ID "current-year" dla automatycznej aktualizacji roku (opcjonalnie) -->
         <p>&copy; <span id="current-year">2025</span> JORGUŚ Sp. z o.o.</p>
     </footer>
 
-    <!-- Podłączenie zewnętrznego pliku JS z logiką (z atrybutem defer) -->
+    <!-- Podłączenie zewnętrznego pliku JavaScript -->
     <script src="script.js" defer></script>
 </body>
 

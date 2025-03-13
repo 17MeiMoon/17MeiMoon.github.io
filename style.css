@@ -1,164 +1,289 @@
 /* 
    1. Resetowanie marginesów/paddingu i box-sizing
-   (opcjonalnie, ale często przydatne, by zachować przewidywalny wygląd).
 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* 
-     2. Podstawowe style BODY:
-     - Kluczowy jest 'text-align: center;' by centrum było domyślne dla tekstu i elementów inline.
-     - background i color pozostają dowolne.
-  */
-  body {
+}
+
+/* 
+   2. Podstawowe style BODY:
+   Ustawiono bardzo jasny róż jako tło.
+*/
+body {
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    background-color: #fce4ec; /* bardzo jasny róż */
     color: #333;
-    text-align: center;    /* dzięki temu CAŁA treść tekstowa będzie wyśrodkowana */
+    text-align: center;
     margin: 0;
     line-height: 1.5;
-  }
-  
-  /* 3. Nagłówek */
-  header {
-    background-color: #417f7a;
+}
+
+/* 
+   3. Nagłówek
+   Użyto wyrazistego odcienia różu.
+*/
+header {
+    background-color: #e91e63; /* intensywny róż */
     color: #fff;
     padding: 20px;
-    /* text-align: center; - nie jest konieczne, bo już w body jest centrowanie */
-  }
-  
-  /* 4. Logo (obrazek) – by było wyśrodkowane jako block */
-  .logo {
+}
+
+/* 
+   4. Logo (obrazek) – wyśrodkowane jako block
+*/
+.logo {
     max-width: 150px;
     display: block;
     margin: 0 auto;
-  }
-  
-  /* 5. Nawigacja i przycisk trybu ciemnego */
-  nav {
-    margin-top: 10px; /* odstęp w pionie */
-  }
-  
-  /* Przycisk trybu ciemnego */
-  #dark-mode-button {
+}
+
+/* 
+   5. Nawigacja i przycisk trybu ciemnego
+*/
+nav {
+    margin-top: 10px;
+}
+
+/* Przycisk trybu ciemnego */
+#dark-mode-button {
     cursor: pointer;
     border: none;
     padding: 0.5em 1em;
     font-weight: bold;
-    background-color: #444;
+    background-color: #e91e63; /* intensywny róż */
     color: #fff;
     transition: background-color 0.3s ease;
-    /* Można dodać display: inline-block, by kontrolować szerokość */
     display: inline-block;
-  }
-  #dark-mode-button:hover {
-    background-color: #666;
-  }
-  
-  /* 6. Główna część strony */
-  main {
+}
+#dark-mode-button:hover {
+    background-color: #ec407a; /* nieco jaśniejszy róż */
+}
+
+/* 
+   6. Główna część strony 
+*/
+main {
     padding: 20px;
-    /* text-align: center; - dziedziczone z body */
-  }
-  
-  /* Sekcje – odstępy pomiędzy blokami */
-  section {
+}
+
+/* Sekcje – odstępy między blokami */
+section {
     margin-bottom: 20px;
-  }
-  section h2 {
+}
+section h2 {
     margin-bottom: 10px;
-  }
-  
-  /* 7. Stopka – centrowanie dziedziczone, więc wystarczy marginesy itp. */
-  footer {
+}
+
+/* 
+   7. Stopka – domyślnie prosty styl 
+*/
+footer {
     margin: 20px 0;
     color: #666;
-  }
-  
-  /* 8. Element do komunikatu o otwarciu/zamknięciu */
-  #open-status {
+}
+
+/* 
+   8. Element do komunikatu o otwarciu/zamknięciu
+*/
+#open-status {
     font-weight: bold;
     margin-top: 10px;
-  }
-  
-  /* 9. Podstawowe style przycisków/linków (Hotel, Spa, Ankieta, Rezerwacja) */
-  .option,
-  .survey-button,
-  .reservation-button {
-    background-color: #4caf50;
+}
+
+/* 
+   9. Podstawowe style przycisków/linków (Hotel, Spa, Ankieta, Rezerwacja)
+   Ustawiono odcienie różu dla przycisków.
+*/
+.option,
+.survey-button,
+.reservation-button {
+    background-color: #e91e63; /* intensywny róż */
     color: #fff;
     padding: 12px 20px;
     border-radius: 4px;
     text-decoration: none;
-    display: inline-block; /* aby szerokość dopasowywała się do treści i centrowała */
-    transition: background-color 0.3s ease;
-    margin: 10px auto;    /* automatyczne marginesy – w trybie inline-block nie zawsze się przydadzą,
-                             ale możesz zostawić jeśli chcesz np. odstęp w pionie */
-                               /* Płynne przejście transformacji */
-  transition: transform 0.3s ease; 
-  }
-  .option:hover,
-  .survey-button:hover,
-  .reservation-button:hover {
-    background-color: #45a049;
-    transform: scale(1.1); /* zmień wartość na większą lub mniejszą, np. 1.05, 1.2 */
-  }
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px auto;
+}
+.option:hover,
+.survey-button:hover,
+.reservation-button:hover {
+    background-color: #ec407a; /* jaśniejszy róż */
+    transform: scale(1.1);
+}
 
-  /* Styl dla aktywnego przycisku rezerwacji, który powiększa się przy najechaniu */
+/* Efekt powiększenia dla aktywnego przycisku rezerwacji */
 .reservation-button:enabled:hover {
-    transform: scale(1.1); /* Powiększenie przycisku */
+    transform: scale(1.1);
     transition: transform 0.3s ease;
-  }
-  
-  /* Dla przycisku wyłączonego (disabled) – opcjonalnie: zmniejszona przezroczystość i zmiana kursora */
-  .reservation-button:disabled {
+}
+
+/* Styl dla przycisku wyłączonego (disabled) */
+.reservation-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-  
-  .container {
+}
+
+/* Kontener – wyśrodkowany box z białym tłem */
+.container {
     max-width: 800px;
-    margin: 0 auto; /* wyśrodkowanie container w poziomie */
+    margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 6px;
-  }
-  
-  /* =========================
-     10. TRYB CIEMNY
-  ========================= */
-  .dark-mode {
+}
+
+.container_karuzela {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+/* =========================
+   10. TRYB CIEMNY
+========================= */
+.dark-mode {
     background-color: #222; 
     color: #eee;
-  }
-  
-  /* Nagłówek, stopka w trybie ciemnym */
-  .dark-mode header,
-  .dark-mode footer {
-    background-color: #333;
+}
+
+/* Nagłówek i stopka w trybie ciemnym – ciemniejszy róż */
+.dark-mode header,
+.dark-mode footer {
+    background-color: #ad1457; /* ciemny róż */
     color: #eee;
+}
+
+/* Przycisk trybu ciemnego w trybie ciemnym */
+.dark-mode #dark-mode-button {
+    background-color: #c2185b; /* głęboki róż */
+}
+.dark-mode #dark-mode-button:hover {
+    background-color: #d81b60; /* nieco jaśniejszy głęboki róż */
+}
+
+/* Przyciski / linki w trybie ciemnym */
+.dark-mode .option,
+.dark-mode .survey-button,
+.dark-mode .reservation-button {
+    background-color: #c2185b; /* głęboki róż */
+    color: #fff;              /* jasny tekst */
+}
+.dark-mode .option:hover,
+.dark-mode .survey-button:hover,
+.dark-mode .reservation-button:hover {
+    background-color: #d81b60; /* nieco jaśniejszy głęboki róż */
+}
+
+/* Tło i kolor tekstu w trybie ciemnym wewnątrz .container */
+.dark-mode .container {
+    background-color: #333; /* ciemne tło */
+    color: #eee;           /* jasny tekst */
   }
   
-  /* Przycisk w trybie ciemnym */
-  .dark-mode #dark-mode-button {
-    background-color: #555;
-  }
-  .dark-mode #dark-mode-button:hover {
-    background-color: #777;
+  /* Nagłówki wewnątrz kontenera w trybie ciemnym */
+  .dark-mode .container h2 {
+    color: #fff;
   }
   
-  /* Przyciski / linki w trybie ciemnym */
-  .dark-mode .option,
-  .dark-mode .survey-button,
-  .dark-mode .reservation-button {
-    background-color: #444;
+  /* Etykiety, paragrafy i inne elementy wewnątrz kontenera */
+  .dark-mode .container label,
+  .dark-mode .container p {
+    color: #ccc; /* nieco jaśniejszy szary odcień */
   }
-  .dark-mode .option:hover,
-  .dark-mode .survey-button:hover,
-  .dark-mode .reservation-button:hover {
-    background-color: #666;
+
+  .dark-mode input[type="date"] {
+    background-color: #444; /* tło pola */
+    color: #eee;           /* kolor czcionki */
+    border: 1px solid #555;
+  }
+  
+
+/* Kontener karuzeli */
+.carousel {
+    position: relative;
+    width: 800px;          /* przykładowa szerokość, dopasuj do potrzeb */
+    height: 450px;         /* przykładowa wysokość, dopasuj do potrzeb */
+    margin: 20px auto;     /* wyśrodkowanie */
+    overflow: hidden;      /* ukrywa elementy poza obszarem karuzeli */
+    border: none;
+    border-radius: 4px;
+  }
+  
+  /* Każdy slajd: absolutnie pozycjonowany w kontenerze */
+  .slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Domyślne ustawienie niewidoczne, 
+       zanim przypiszemy jedną z klas (prev, current, next, hidden) */
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 1;  /* aby slajdy były pod przyciskami */
+  }
+  
+  /* Obraz w slajdzie */
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px; /* zaokrąglone rogi */
+}
+  
+  /* Klasa ukrywająca slajd zupełnie */
+  .hidden {
+    pointer-events: none;
+  }
+  
+  /* Poprzedni slajd (po lewej, mniejszy, przyciemniony) */
+  .prev {
+    opacity: 0.5;
+    transform: translate(-150%, -50%) scale(0.8);
+  }
+  
+  /* Aktualny slajd (w środku, pełny rozmiar, w pełni widoczny) */
+  .current {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 2; /* aby był nad poprzednim/następnym */
+  }
+  
+  /* Następny slajd (po prawej, mniejszy, przyciemniony) */
+  .next {
+    opacity: 0.5;
+    transform: translate(50%, -50%) scale(0.8);
+  }
+  
+  /* Przyciski „Poprzednie” i „Następne” */
+  .carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 3;  /* ponad slajdami */
+    transition: background-color 0.3s;
+  }
+  
+  .carousel button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Przyciski nawigacji z lewej i prawej strony */
+  #prev {
+    left: 20px;
+  }
+  
+  #next {
+    right: 20px;
   }
   

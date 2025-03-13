@@ -7,32 +7,29 @@
     <meta name="author" content="Barbara Rokicińska" />
 
     <meta name="keywords"
-        content="jorguś, hotel dla zwierząt, spa dla zwierząt, opieka nad zwierzętami, pielęgnacja zwierząt, relaks dla zwierząt" />
+        content="jorguś, hotel dla zwierząt, spa dla zwierząt, opieka nad zwierzętami, pielęgnacja zwierząt, relaks dla zwierząt">
     <meta name="description"
-        content="Hotel i spa dla zwierząt Jorguś – luksusowa opieka, pielęgnacja i relaks dla Twojego pupila. Zapewniamy komfortowy pobyt, profesjonalne zabiegi i troskliwą opiekę." />
+        content="Hotel i spa dla zwierząt Jorguś – luksusowa opieka, pielęgnacja i relaks dla Twojego pupila. Zapewniamy komfortowy pobyt, profesjonalne zabiegi i troskliwą opiekę.">
 
     <title>Jorguś - Fryzjer Twojego Pupila</title>
 
-    <!-- Główny plik CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- Podstawowy arkusz stylów -->
+    <link rel="stylesheet" href="style.css">
 
-    <!-- (Opcjonalnie) Font Awesome dla ikon trybu ciemnego, jeśli nie jest wczytany globalnie -->
-    <!-- 
-  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous"></script>
-  -->
+    <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- Nagłówek strony z logotypem oraz przełącznikiem trybu jasny/ciemny -->
     <header>
         <a href="index.html">
             <img src="images/logo.png" alt="Logo JORGUŚ Sp. z o.o." class="logo" />
         </a>
         <h1>Jorguś - Fryzjer Twojego Pupila</h1>
 
-        <!-- Nawigacja z przyciskiem trybu jasny/ciemny -->
+        <!-- Nawigacja i przycisk zmiany motywu (jasny/ciemny) -->
         <nav>
             <button id="dark-mode-button">
-                <!-- Domyślnie: ikona księżyca i napis "Tryb ciemny" -->
                 <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
                 <span id="dark-mode-text">Tryb ciemny</span>
             </button>
@@ -41,57 +38,53 @@
 
     <main>
         <div class="container">
-            <!-- Sekcja usług -->
+
+            <!-- Sekcja usług fryzjerskich -->
             <section>
-                <h2>Usługi</h2>
+                <h2>Oferowane usługi</h2>
                 <ul>
-                    <li>Strzyżenie, trymowanie</li>
-                    <li>Kąpiel i suszenie</li>
-                    <li>Obcinanie pazurków</li>
+                    <li>Strzyżenie</li>
+                    <li>Obcinanie pazurów</li>
                     <li>Pielęgnacja uszu i oczu</li>
+                    <li>Kąpiel i pielęgnacja sierści</li>
                 </ul>
             </section>
 
-            <!-- Sekcja z przyciskiem do zapisu na wizytę oraz mapą -->
+            <!-- Sekcja umawiania wizyt oraz lokalizacja -->
             <section>
                 <div class="options">
                     <a href="https://booksy.com/pl-pl/100767_jorgus-fryzjer-twojego-pupila_zwierzaki_4369_konstancin-jeziorna#ba_s=sr_1"
-                        class="option">Zapisz się na wizytę</a>
+                        class="option" target="_blank">Umów wizytę</a>
                 </div>
                 <div class="map-container">
                     <h2>Nasza lokalizacja</h2>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1134.7760338030669!2d21.115140657329544!3d52.09335061026191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192c1984bcadd7%3A0x8e8c245c609e4bb3!2sJorgu%C5%9B%20Fryzjer%20Twojego%20Pupila!5e0!3m2!1spl!2spl!4v1741870896314!5m2!1spl!2spl"
                         style="border:0; width: 100%; height: 450px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </section>
 
-            <!-- Sekcja informacji praktycznych -->
+            <!-- Sekcja informacji praktycznych (adres, godziny otwarcia) -->
             <section>
                 <h2>Informacje praktyczne</h2>
                 <p>
                     Adres: <br>
-                    Kolejowa 44, 05-520, Konstancin-Jeziorna
+                    Kolejowa 44, 05-520 Konstancin-Jeziorna
                 </p>
-                <p>
-                    Godziny otwarcia: <br />
-                    Pon. - Pt. 07:00 - 22:00, <br />
-                    Sob. 08:00 - 15:00 <br>
-                    Niedz - nieczynne <br>
-                </p>
-                <!-- Miejsce na dynamiczny komunikat o tym, czy salon jest aktualnie otwarty -->
+                <!-- Dynamiczny komunikat o aktualnych godzinach otwarcia -->
                 <div id="open-status" style="font-weight: bold; margin-top: 10px;"></div>
             </section>
         </div>
     </main>
 
+    <!-- Stopka z dynamicznym rokiem -->
     <footer>
-        <!-- Dodajemy ID dla roku, jeśli chcesz dynamicznie wyświetlać -->
         <p>&copy; <span id="current-year">2025</span> JORGUŚ Sp. z o.o.</p>
     </footer>
 
-    <!-- Podłączamy zewnętrzny plik JS -->
+    <!-- Zewnętrzny skrypt JS -->
     <script src="script.js" defer></script>
 </body>
 
