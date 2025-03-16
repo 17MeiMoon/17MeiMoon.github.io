@@ -1,351 +1,243 @@
-/* 
-   1. Resetowanie marginesów/paddingu i box-sizing
-*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-
-/* 
-   2. Podstawowe style BODY:
-   Ustawiono bardzo jasny róż jako tło.
-*/
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fce4ec; /* bardzo jasny róż */
-    color: #333;
-    text-align: center;
-    margin: 0;
-    line-height: 1.5;
+	font-family: Arial, sans-serif;
+	background-color: #fce4ec;
+	color: #333;
+	text-align: center;
+	margin: 0;
+	line-height: 1.5;
 }
-
-/* 
-   3. Nagłówek
-   Użyto wyrazistego odcienia różu.
-*/
 header {
-    background-color: #e91e63; /* intensywny róż */
-    color: #fff;
-    padding: 20px;
+	background-color: #e91e63;
+	color: #fff;
+	padding: 20px;
 }
-
-/* 
-   4. Logo (obrazek) – wyśrodkowane jako block
-*/
 .logo {
-    max-width: 150px;
-    display: block;
-    margin: 0 auto;
+	max-width: 150px;
+	display: block;
+	margin: 0 auto;
 }
-
-/* 
-   5. Nawigacja i przycisk trybu ciemnego
-*/
 nav {
-    margin-top: 10px;
+	margin-top: 10px;
 }
-
-/* Przycisk trybu ciemnego */
 #dark-mode-button {
-    cursor: pointer;
-    border: none;
-    padding: 0.5em 1em;
-    font-weight: bold;
-    background-color: #e91e63; /* intensywny róż */
-    color: #fff;
-    transition: background-color 0.3s ease;
-    display: inline-block;
+	cursor: pointer;
+	border: none;
+	padding: 0.5em 1em;
+	font-weight: 700;
+	background-color: #e91e63;
+	color: #fff;
+	transition: background-color 0.3s ease;
+	display: inline-block;
 }
 #dark-mode-button:hover {
-    background-color: #ec407a; /* nieco jaśniejszy róż */
+	background-color: #ec407a;
 }
-
-/* 
-   6. Główna część strony 
-*/
 main {
-    padding: 20px;
+	padding: 20px;
 }
-
-/* Sekcje – odstępy między blokami */
 section {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 section h2 {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
-
-/* 
-   7. Stopka – domyślnie prosty styl 
-*/
 footer {
-    margin: 20px 0;
-    color: #666;
+	margin: 20px 0;
+	color: #666;
 }
-
-/* 
-   8. Element do komunikatu o otwarciu/zamknięciu
-*/
 #open-status {
-    font-weight: bold;
-    margin-top: 10px;
+	font-weight: 700;
+	margin-top: 10px;
 }
-
-/* 
-   9. Podstawowe style przycisków/linków (Hotel, Spa, Ankieta, Rezerwacja)
-   Ustawiono odcienie różu dla przycisków.
-*/
 .option,
 .survey-button,
 .reservation-button {
-    background-color: #e91e63; /* intensywny róż */
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 10px auto;
+	background-color: #e91e63;
+	color: #fff;
+	padding: 12px 20px;
+	border-radius: 4px;
+	text-decoration: none;
+	display: inline-block;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	margin: 10px auto;
 }
 .option:hover,
 .survey-button:hover,
 .reservation-button:hover {
-    background-color: #ec407a; /* jaśniejszy róż */
-    transform: scale(1.1);
+	background-color: #ec407a;
+	transform: scale(1.1);
 }
-
-/* Efekt powiększenia dla aktywnego przycisku rezerwacji */
 .reservation-button:enabled:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+	transform: scale(1.1);
+	transition: transform 0.3s ease;
 }
-
-/* Styl dla przycisku wyłączonego (disabled) */
 .reservation-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+	opacity: 0.5;
+	cursor: not-allowed;
 }
-
-/* Kontener – wyśrodkowany box z białym tłem */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 6px;
+	max-width: 800px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 6px;
 }
-
 .container_karuzela {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 6px;
+	max-width: 800px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 6px;
 }
-
-/* =========================
-   10. TRYB CIEMNY
-========================= */
 .dark-mode {
-    background-color: #222; 
-    color: #eee;
+	background-color: #222;
+	color: #eee;
 }
-
-/* Nagłówek i stopka w trybie ciemnym – ciemniejszy róż */
 .dark-mode header,
 .dark-mode footer {
-    background-color: #ad1457; /* ciemny róż */
-    color: #eee;
+	background-color: #ad1457;
+	color: #eee;
 }
-
-/* Przycisk trybu ciemnego w trybie ciemnym */
 .dark-mode #dark-mode-button {
-    background-color: #c2185b; /* głęboki róż */
+	background-color: #c2185b;
 }
 .dark-mode #dark-mode-button:hover {
-    background-color: #d81b60; /* nieco jaśniejszy głęboki róż */
+	background-color: #d81b60;
 }
-
-/* Przyciski / linki w trybie ciemnym */
 .dark-mode .option,
 .dark-mode .survey-button,
 .dark-mode .reservation-button {
-    background-color: #c2185b; /* głęboki róż */
-    color: #fff;              /* jasny tekst */
+	background-color: #c2185b;
+	color: #fff;
 }
 .dark-mode .option:hover,
 .dark-mode .survey-button:hover,
 .dark-mode .reservation-button:hover {
-    background-color: #d81b60; /* nieco jaśniejszy głęboki róż */
+	background-color: #d81b60;
 }
-
-/* Tło i kolor tekstu w trybie ciemnym wewnątrz .container */
 .dark-mode .container {
-    background-color: #333; /* ciemne tło */
-    color: #eee;           /* jasny tekst */
-  }
-  
-  /* Nagłówki wewnątrz kontenera w trybie ciemnym */
-  .dark-mode .container h2 {
-    color: #fff;
-  }
-  
-  /* Etykiety, paragrafy i inne elementy wewnątrz kontenera */
-  .dark-mode .container label,
-  .dark-mode .container p {
-    color: #ccc; /* nieco jaśniejszy szary odcień */
-  }
-
-/* Tło i kolor tekstu w trybie ciemnym wewnątrz .container */
-.dark-mode .container_karuzela {
-    background-color: #333; /* ciemne tło */
-    color: #eee;           /* jasny tekst */
-  }
-  
-  /* Nagłówki wewnątrz kontenera w trybie ciemnym */
-  .dark-mode .container_karuzela h2 {
-    color: #fff;
-  }
-  
-  /* Etykiety, paragrafy i inne elementy wewnątrz kontenera */
-  .dark-mode .container_karuzela label,
-  .dark-mode .container_karuzela p {
-    color: #ccc; /* nieco jaśniejszy szary odcień */
-  }
-
-
-  .dark-mode input[type="date"] {
-    background-color: #444; /* tło pola */
-    color: #eee;           /* kolor czcionki */
-    border: 1px solid #555;
-  }
-  
-
-/* Kontener karuzeli */
-.carousel {
-    position: relative;
-    width: 800px;          /* przykładowa szerokość, dopasuj do potrzeb */
-    height: 450px;         /* przykładowa wysokość, dopasuj do potrzeb */
-    margin: 20px auto;     /* wyśrodkowanie */
-    overflow: hidden;      /* ukrywa elementy poza obszarem karuzeli */
-    border: none;
-    border-radius: 4px;
-  }
-  
-  /* Każdy slajd: absolutnie pozycjonowany w kontenerze */
-  .slide {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* Domyślne ustawienie niewidoczne, 
-       zanim przypiszemy jedną z klas (prev, current, next, hidden) */
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    z-index: 1;  /* aby slajdy były pod przyciskami */
-  }
-  
-  /* Obraz w slajdzie */
-  .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 15px; /* zaokrąglone rogi */
+	background-color: #333;
+	color: #eee;
 }
-  
-  /* Klasa ukrywająca slajd zupełnie */
-  .hidden {
-    pointer-events: none;
-  }
-  
-  /* Poprzedni slajd (po lewej, mniejszy, przyciemniony) */
-  .prev {
-    opacity: 0.5;
-    transform: translate(-150%, -50%) scale(0.8);
-  }
-  
-  /* Aktualny slajd (w środku, pełny rozmiar, w pełni widoczny) */
-  .current {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 2; /* aby był nad poprzednim/następnym */
-  }
-  
-  /* Następny slajd (po prawej, mniejszy, przyciemniony) */
-  .next {
-    opacity: 0.5;
-    transform: translate(50%, -50%) scale(0.8);
-  }
-  
-  /* Przyciski „Poprzednie” i „Następne” */
-  .carousel button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1rem;
-    z-index: 3;  /* ponad slajdami */
-    transition: background-color 0.3s;
-  }
-  
-  .carousel button:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  
-  /* Przyciski nawigacji z lewej i prawej strony */
-  #prev {
-    left: 20px;
-  }
-  
-  #next {
-    right: 20px;
-  }
-  
-  /* ============================================
-   RESPONSYWNOŚĆ KARUZELI NA TELEFON 
-============================================ */
-
+.dark-mode .container h2 {
+	color: #fff;
+}
+.dark-mode .container label,
+.dark-mode .container p {
+	color: #ccc;
+}
+.dark-mode .container_karuzela {
+	background-color: #333;
+	color: #eee;
+}
+.dark-mode .container_karuzela h2 {
+	color: #fff;
+}
+.dark-mode .container_karuzela label,
+.dark-mode .container_karuzela p {
+	color: #ccc;
+}
+.dark-mode input[type="date"] {
+	background-color: #444;
+	color: #eee;
+	border: 1px solid #555;
+}
+.carousel {
+	position: relative;
+	width: 800px;
+	height: 450px;
+	margin: 20px auto;
+	overflow: hidden;
+	border: none;
+	border-radius: 4px;
+}
+.slide {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0.8);
+	transition: transform 0.5s ease, opacity 0.5s ease;
+	z-index: 1;
+}
+.slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 15px;
+}
+.hidden {
+	pointer-events: none;
+}
+.prev {
+	opacity: 0.5;
+	transform: translate(-150%, -50%) scale(0.8);
+}
+.current {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+	z-index: 2;
+}
+.next {
+	opacity: 0.5;
+	transform: translate(50%, -50%) scale(0.8);
+}
+.carousel button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #fff;
+	border: none;
+	padding: 10px 15px;
+	cursor: pointer;
+	font-size: 1rem;
+	z-index: 3;
+	transition: background-color 0.3s;
+}
+.carousel button:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+#prev {
+	left: 20px;
+}
+#next {
+	right: 20px;
+}
 @media (max-width: 850px) {
-    .carousel {
-        width: 95%;
-        height: 250px;
-    }
-
-    .slide {
-        width: 80%;
-        height: 100%;
-    }
-
-    .prev {
-        left: 0%;
-        opacity: 0;
-    }
-
-    .next {
-        left: 100%;
-        opacity: 0;
-    }
-
-    .current {
-        left: 50%;
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    .carousel button {
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
-
-    #prev {
-        left: 0;
-    }
-
-    #next {
-        right: 0;
-    }
+	.carousel {
+		width: 95%;
+		height: 250px;
+	}
+	.slide {
+		width: 80%;
+		height: 100%;
+	}
+	.prev {
+		left: 0;
+		opacity: 0;
+	}
+	.next {
+		left: 100%;
+		opacity: 0;
+	}
+	.current {
+		left: 50%;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	.carousel button {
+		padding: 6px 10px;
+		font-size: 0.8rem;
+	}
+	#prev {
+		left: 0;
+	}
+	#next {
+		right: 0;
+	}
 }

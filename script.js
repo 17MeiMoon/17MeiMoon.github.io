@@ -143,7 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			const img = document.createElement("img");
 			// Ścieżka do pliku w folderze "imagines"
 			img.src = `imagines/${filename}`;
-			img.alt = filename; // Możesz dopisać lepszy opis
+			img.alt = filename;
+			img.loading = "lazy";
 			slideDiv.appendChild(img);
 
 			// Dodajemy do kontenera karuzeli

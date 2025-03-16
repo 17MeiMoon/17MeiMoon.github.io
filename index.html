@@ -1,73 +1,57 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Barbara Rokicińska">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Barbara Rokicińska">
+  <meta name="keywords" content="jorguś, hotel dla psów, spa dla psów i kotów, opieka nad zwierzętami, pielęgnacja zwierząt, rezerwacja, fryzjer dla psów i kotów">
+  <meta name="description" content="Jorguś: Hotel i SPA – luksusowa opieka, pielęgnacja i relaks. Sprawdź ofertę i zarezerwuj pobyt lub zabieg dla swojego pupila.">
+  <title>Jorguś – Hotel (tylko dla psów) & SPA (dla psów i kotów)</title>
 
-    <!-- Słowa kluczowe (opcjonalnie dostosuj do swoich potrzeb) -->
-    <meta name="keywords"
-        content="jorguś, hotel dla psów, spa dla psów i kotów, opieka nad zwierzętami, pielęgnacja zwierząt, rezerwacja, fryzjer dla psów i kotów">
+  <!-- ZMINIFIKOWANY CSS -->
+  <link rel="stylesheet" href="style.css">
 
-    <!-- Zmieniony meta description -->
-    <meta name="description"
-        content="Jorguś: Hotel (tylko dla psów) i SPA (dla psów i kotów) – luksusowa opieka, pielęgnacja i relaks. Sprawdź ofertę i zarezerwuj pobyt lub zabieg dla swojego pupila.">
-
-    <!-- Unikalny tytuł -->
-    <title>Jorguś – Hotel (tylko dla psów) & SPA (dla psów i kotów)</title>
-
-    <!-- Główny plik CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome (ikony) -->
-    <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome (ikony) – dodajemy "defer" -->
+  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
+  <header>
+    <a href="index.html">
+      <img src="images/logo.png" alt="Logo JORGUŚ Sp. z o.o." class="logo" />
+    </a>
+    <h1>Jorguś – Hotel i SPA Twojego Pupila</h1>
+    <nav>
+      <button id="dark-mode-button">
+        <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
+        <span id="dark-mode-text">Tryb ciemny</span>
+      </button>
+    </nav>
+  </header>
 
-    <header>
-        <a href="index.html">
-            <img src="images/logo.png" alt="Logo JORGUŚ Sp. z o.o." class="logo" />
-        </a>
-        <!-- H1 uwzględniający zakres usług -->
-        <h1>Jorguś – Hotel i SPA Twojego Pupila</h1>
+  <main>
+    <div class="container">
+      <section>
+        <h2>Wybierz usługę: Hotel lub SPA Twojego Pupila</h2>
+        <a href="hotel.html" class="option">Hotel</a>
+        <a href="spa.html" class="option">Spa</a>
+      </section>
+    </div>
+    <div class="container_karuzela">
+      <section>
+        <h3>Nasi zadowoleni klienci</h3>
+        <div class="carousel"></div>
+        <button id="prev">Poprzednie</button>
+        <button id="next">Następne</button>
+      </section>
+    </div>
+  </main>
 
-        <!-- Nawigacja z przyciskiem trybu jasny/ciemny -->
-        <nav>
-            <button id="dark-mode-button">
-                <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
-                <span id="dark-mode-text">Tryb ciemny</span>
-            </button>
-        </nav>
-    </header>
+  <footer>
+    <p>&copy; <span id="current-year"></span> JORGUŚ Sp. z o.o.</p>
+  </footer>
 
-    <main>
-        <div class="container">
-            <section>
-                <!-- H2 wprost mówi o hotelu i SPA z zaznaczeniem, dla kogo są usługi -->
-                <h2>Wybierz usługę: Hotel lub SPA Twojego Pupila</h2>
-                <a href="hotel.html" class="option">Hotel</a>
-                <a href="spa.html" class="option">Spa</a>
-            </section>
-        </div>
-        <div class="container_karuzela">
-            <section>
-                <h3>Nasi zadowoleni klienci</h3>
-                <div class="carousel"></div>
-                <button id="prev">Poprzednie</button>
-                <button id="next">Następne</button>                
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; <span id="current-year"></span> JORGUŚ Sp. z o.o.</p>
-    </footer>
-
-    <!-- Podłączenie zewnętrznego pliku JS -->
-    <script src="script.js" defer></script>
+  <!-- Plik JS z logiką (karuzela, tryb ciemny itd.) -->
+  <script src="script.js" defer></script>
 </body>
-
 </html>
