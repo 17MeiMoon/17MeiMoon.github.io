@@ -104,42 +104,108 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	/* ===========================================
-	   4. KARUZELA (SLIDER)
-	============================================ */
-    const slides = document.querySelectorAll(".slide");
-    const prevBtn = document.querySelector("#prev");
-    const nextBtn = document.querySelector("#next");
-    let currentIndex = 0;
+     4. KARUZELA (SLIDER) - DYNAMICZNE ŁADOWANIE
+  ============================================ */
 
-    function updateCarousel() {
-        slides.forEach(slide => {
-            slide.classList.remove("prev", "current", "next");
-            slide.style.opacity = 0;
-        });
+	// KROK A: Pobieramy listę obrazów z pliku images.json
+	fetch("images.json")
+		.then((response) => response.json())
+		.then((imageFilenames) => {
+			// KROK B: Tworzymy karuzelę dopiero, gdy mamy listę plików
+			createCarousel(imageFilenames);
+		})
+		.catch((error) => {
+			console.error("Błąd podczas wczytywania listy obrazów:", error);
+		});
 
-        slides[currentIndex].classList.add("current");
-        slides[currentIndex].style.opacity = 1;
+	// Funkcja generująca i obsługująca karuzelę
+	function createCarousel(imageFilenames) {
+		const carouselContainer = document.querySelector(".carousel");
+		const prevBtn = document.querySelector("#prev");
+		const nextBtn = document.querySelector("#next");
 
-        const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-        slides[prevIndex].classList.add("prev");
-        slides[prevIndex].style.opacity = 0.3;
+		// Sprawdzamy, czy mamy odpowiednie elementy w HTML i czy tablica obrazów nie jest pusta
+		if (
+			!carouselContainer ||
+			!prevBtn ||
+			!nextBtn ||
+			imageFilenames.length === 0
+		) {
+			console.warn("Brak elementów karuzeli lub pusta lista obrazów.");
+			return;
+		}
 
-        const nextIndex = (currentIndex + 1) % slides.length;
-        slides[nextIndex].classList.add("next");
-        slides[nextIndex].style.opacity = 0.3;
-    }
+		// 1. Tworzymy DIV-y .slide z obrazkami
+		imageFilenames.forEach((filename) => {
+			const slideDiv = document.createElement("div");
+			slideDiv.classList.add("slide");
 
-    prevBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateCarousel();
-    });
+			const img = document.createElement("img");
+			// Ścieżka do pliku w folderze "imagines"
+			img.src = `imagines/${filename}`;
+			img.alt = filename; // Możesz dopisać lepszy opis
+			slideDiv.appendChild(img);
 
-    nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateCarousel();
-    });
+			// Dodajemy do kontenera karuzeli
+			carouselContainer.appendChild(slideDiv);
+		});
 
-    // Pierwsze wywołanie dla inicjalizacji
-    updateCarousel();
-	startAutoSlide();
+		// 2. Pobieramy wszystkie utworzone slajdy
+		const slides = document.querySelectorAll(".slide");
+		let currentIndex = 0;
+		let autoSlideInterval;
+
+		// Funkcja aktualizująca widoczność slajdów
+		function updateCarousel() {
+			slides.forEach((slide) => {
+				slide.classList.remove("prev", "current", "next");
+				slide.style.opacity = 0;
+			});
+
+			// Bieżący slajd
+			slides[currentIndex].classList.add("current");
+			slides[currentIndex].style.opacity = 1;
+
+			// Poprzedni slajd
+			const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+			slides[prevIndex].classList.add("prev");
+			slides[prevIndex].style.opacity = 0.3;
+
+			// Następny slajd
+			const nextIndex = (currentIndex + 1) % slides.length;
+			slides[nextIndex].classList.add("next");
+			slides[nextIndex].style.opacity = 0.3;
+		}
+
+		// Obsługa przycisków
+		prevBtn.addEventListener("click", () => {
+			currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+			updateCarousel();
+			restartAutoSlide();
+		});
+
+		nextBtn.addEventListener("click", () => {
+			currentIndex = (currentIndex + 1) % slides.length;
+			updateCarousel();
+			restartAutoSlide();
+		});
+
+		// Automatyczne przełączanie co 3 sekundy
+		function startAutoSlide() {
+			autoSlideInterval = setInterval(() => {
+				currentIndex = (currentIndex + 1) % slides.length;
+				updateCarousel();
+			}, 3000); // 3000 ms = 3 sekundy
+		}
+
+		// Gdy użytkownik klika w "prev"/"next", resetujemy auto-slajd
+		function restartAutoSlide() {
+			clearInterval(autoSlideInterval);
+			startAutoSlide();
+		}
+
+		// Inicjalizacja karuzeli
+		updateCarousel();
+		startAutoSlide();
+	}
 });
