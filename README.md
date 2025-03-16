@@ -1,0 +1,1 @@
+Strona jest projektem studenckim 
