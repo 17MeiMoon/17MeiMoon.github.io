@@ -2,93 +2,128 @@
 <html lang="pl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Barbara Rokicińska">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Barbara Rokicińska" />
+  <meta name="description"
+    content="Hotel dla psów Jorguś. Komfortowy pobyt, troskliwa opieka i przyjazna atmosfera dla Twojego czworonoga. Zarezerwuj miejsce już dziś.">
+  <meta name="keywords"
+    content="hotel dla psów, nocleg dla psów, opieka nad psem, rezerwacja hotelu, komfortowy pobyt, relaks dla zwierząt">
 
-    <!-- Słowa kluczowe (opcjonalnie możesz je dostosować) -->
-    <meta name="keywords"
-        content="jorguś, hotel dla psów, nocleg dla psów, opieka nad psem, rezerwacja hotelu, komfortowy pobyt, relaks dla zwierząt">
+  <title>Jorguś – Hotel dla Psów</title>
 
-    <!-- Zmieniony meta description -->
-    <meta name="description"
-        content="Hotel dla psów Jorguś. Komfortowy pobyt, troskliwa opieka i przyjazna atmosfera dla Twojego czworonoga. Zarezerwuj miejsce już dziś.">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: "#b9375e",
+            secondary: "#ec407a",
+            lightpink: "#ffe1ea",
+            darkpink: "#7a1f3a"
+          }
+        }
+      }
+    }
+  </script>
 
-    <!-- Unikalny tytuł -->
-    <title>Jorguś – Hotel dla Psów | Komfortowy pobyt dla Twojego Pupila</title>
-
-    <!-- Główny arkusz stylów CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://kit.fontawesome.com">
-    <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
+  <!-- Swiper CSS + Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
 </head>
 
-<body>
-
-    <header>
-        <a href="index.html">
-            <img src="images/logo.png" alt="Logo JORGUŚ Sp. z o.o." class="logo" />
+<body class="bg-lightpink dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+  <!-- HEADER -->
+  <header
+    class="bg-gradient-to-r from-primary to-secondary dark:from-darkpink dark:to-primary text-white p-6 flex flex-col md:flex-row justify-between items-center shadow-lg gap-4">
+    <div class="flex flex-col md:flex-row items-center gap-4">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Logo Jorguś" class="w-16" />
+      </a>
+      <h1 class="text-2xl md:text-4xl font-bold text-center md:text-left">
+        Jorguś – Hotel Dla Psów
+      </h1>
+      <div class="flex gap-2 items-center">
+        <span>Zaobserwuj nas:</span>
+        <a href="https://www.facebook.com/p/jorguś-domowy-hotel-dla-psow-100093150107076/" target="_blank"
+          class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold flex items-center gap-1">
+          <i class="fa-brands fa-facebook"></i> Hotel
         </a>
-        <!-- H1 informujący, że hotel jest tylko dla psów -->
-        <h1>Jorguś – Hotel dla Psów</h1>
+        <a href="https://www.facebook.com/p/Jorguś-Fryzjer-Twojego-Pupila-100063954304380/" target="_blank"
+          class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold flex items-center gap-1">
+          <i class="fa-brands fa-facebook"></i> SPA
+        </a>
+      </div>
+    </div>
+    <button id="dark-mode-button" class="bg-white text-primary px-4 py-2 rounded hover:bg-pink-100 transition">
+      <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
+      <span id="dark-mode-text">Tryb ciemny</span>
+    </button>
+  </header>
 
-        <nav>
-            <button id="dark-mode-button">
-                <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
-                <span id="dark-mode-text">Tryb ciemny</span>
-            </button>
-        </nav>
-    </header>
+  <!-- MAIN -->
+  <main class="flex-1 container mx-auto p-6 flex">
+    <div class="grid md:grid-cols-2 gap-8 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 flex-1">
 
-    <main>
-        <div class="container">
+      <!-- LEWA KOLUMNA -->
+      <div class="flex flex-col justify-center items-center">
+        <section class="text-base md:text-lg w-full">
+          <section class="mb-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Pierwsza wizyta? <br>Wypełnij ankietę o Twoim psie</h2>
+            <p>Aby lepiej zadbać o naszego Gościa, prosimy o wypełnienie krótkiej ankiety.</p>
+            <p>Pozwoli nam to poznać zwyczaje oraz potrzeby Twojego zwierzaka.</p>
+            <a class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-secondary transition"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform?usp=sf_link"
+              target="_blank">Przejdź do Ankiety</a>
+          </section>
 
-            <!-- Sekcja ankiety o psie -->
-            <section>
-                <h2>Pierwsza wizyta? Wypełnij ankietę o Twoim psie</h2>
-                <p>Aby lepiej zadbać o naszego Gościa, prosimy o wypełnienie krótkiej ankiety.</p>
-                <p>Pozwoli nam to poznać zwyczaje oraz potrzeby Twojego zwierzaka.</p>
-                <a class="survey-button" href="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform?usp=sf_link"
-                    target="_blank">Przejdź do Ankiety</a>
-            </section>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-center">Rezerwacja Pobytu</h3>
+          <form id="reservation-form" class="space-y-4">
+            <div>
+              <label for="start-date" class="block font-medium">Data przyjazdu:</label>
+              <input type="date" id="start-date"
+                class="mt-1 p-2 border rounded w-full dark:bg-gray-700 dark:border-gray-600" required />
+            </div>
+            <div>
+              <label for="end-date" class="block font-medium">Data wyjazdu:</label>
+              <input type="date" id="end-date"
+                class="mt-1 p-2 border rounded w-full dark:bg-gray-700 dark:border-gray-600" required />
+            </div>
+            <div class="flex justify-center mt-4">
+              <button type="submit"
+                class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition font-medium">
+                Zarezerwuj
+              </button>
+            </div>
+            <p class="mt-4 text-center">
+              <strong>Adres:</strong><br>
+              Kępa Okrzewska 11G, 05-520 Kępa Okrzewska<br>
+              <strong>Telefon:</strong><br> -
+            </p>
+          </form>
+        </section>
+      </div>
 
-            <!-- Sekcja formularza rezerwacji pobytu -->
-            <section>
-                <h2>Rezerwacja Pobytu</h2>
-                <form id="reservation-form">
-                    <label for="start-date">Data przyjazdu:</label>
-                    <input type="date" id="start-date" required>
-                
-                    <br><br>
-                
-                    <label for="end-date">Data wyjazdu:</label>
-                    <input type="date" id="end-date" name="end-date" required>
-                
-                    <div id="date-feedback"></div>
-                    <div id="days-count"></div>
-                
-                    <button type="submit" class="reservation-button" disabled>Zarezerwuj</button>
-                </form>
-            </section>
-
-            <!-- Sekcja z mapą Google -->
-            <section>
-                <h2>Nasza lokalizacja</h2>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020.0615827251422!2d21.14871218862323!3d52.134807447644384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192d3347eabe0d%3A0x932e598e24beddec!2sJorgu%C5%9B%20hotel%20twojego%20pupila!5e0!3m2!1spl!2spl!4v1741888789629!5m2!1spl!2spl"
-                    style="border:0; width: 100%; height: 450px;" allowfullscreen loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </section>
-
+      <!-- PRAWA KOLUMNA: MAPA -->
+      <div class="flex flex-col justify-center">
+        <div class="border-4 border-primary rounded-lg overflow-hidden shadow-lg flex-1">
+          <iframe class="w-full h-full min-h-[400px]"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020.0615827251422!2d21.14871218862323!3d52.134807447644384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192d3347eabe0d%3A0x932e598e24beddec!2sJorgu%C5%9B%20hotel%20twojego%20pupila!5e0!3m2!1spl!2spl!4v1741888789629!5m2!1spl!2spl"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
 
-    <footer>
-        <p>&copy; <span id="current-year">2025</span> JORGUŚ Sp. z o.o.</p>
-    </footer>
+  <footer class="bg-primary dark:bg-darkpink text-white text-sm text-center py-4">
+    &copy; <span id="current-year"></span> JORGUŚ Sp. z o.o.
+  </footer>
 
-    <script src="script.js" defer></script>
+  <!-- Usunięto powtarzający się kod JS, wstawiamy wspólny plik: -->
+  <script src="common.js" defer></script>
 </body>
 
 </html>

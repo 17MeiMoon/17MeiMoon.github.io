@@ -1,56 +1,89 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Barbara Rokicińska">
-  <meta name="keywords" content="jorguś, hotel dla psów, spa dla psów i kotów, opieka nad zwierzętami, pielęgnacja zwierząt, rezerwacja, fryzjer dla psów i kotów">
-  <meta name="description" content="Jorguś: Hotel i SPA – luksusowa opieka, pielęgnacja i relaks. Sprawdź ofertę i zarezerwuj pobyt lub zabieg dla swojego pupila.">
-  <title>Jorguś – Hotel (tylko dla psów) & SPA (dla psów i kotów)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Barbara Rokicińska" />
+  <meta name="description"
+    content="Jorguś – Hotel & SPA Twojego Psa. Zapewniamy kompleksową opiekę, nocleg oraz profesjonalną pielęgnację psów i kotów. Sprawdź naszą ofertę!">
+  <meta name="keywords"
+    content="jorguś, hotel dla psów, spa dla psów, fryzjer dla psów, pielęgnacja zwierząt, nocleg dla psów, strzyżenie psów">
 
-  <link rel="stylesheet" href="style.css">
+  <title>Jorguś – Hotel & SPA Twojego Psa</title>
 
-  <link rel="preconnect" href="https://kit.fontawesome.com">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: "#b9375e",
+            secondary: "#ec407a",
+            lightpink: "#ffe1ea",
+            darkpink: "#7a1f3a"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Swiper CSS + Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
 </head>
 
-<body>
-  <header>
-    <a href="index.html">
-      <img src="images/logo.png" alt="Logo JORGUŚ Sp. z o.o." class="logo" />
-    </a>
-    <h1>Jorguś – Hotel i SPA Twojego Pupila <br> NOTICE: STRONA W TRAKCIE ROBIENIA</h1>
-    <nav>
-      <button id="dark-mode-button">
-        <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
-        <span id="dark-mode-text">Tryb ciemny</span>
-      </button>
-    </nav>
+<body id="body" class="bg-lightpink dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+  <!-- HEADER -->
+  <header
+    class="bg-gradient-to-r from-primary to-secondary dark:from-darkpink dark:to-primary text-white p-6 flex flex-col md:flex-row justify-between items-center shadow-lg gap-4">
+    <div class="flex flex-col md:flex-row items-center gap-4">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Logo Jorguś" class="w-16" />
+      </a>
+      <h1 class="text-2xl md:text-4xl font-bold text-center md:text-left">
+        Jorguś – Hotel & SPA Twojego Psa
+      </h1>
+      <div class="flex gap-2 items-center">
+        <span>Zaobserwuj nas:</span>
+        <a href="#" class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold">
+          <i class="fa-brands fa-facebook"></i> Hotel
+        </a>
+        <a href="#" class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold">
+          <i class="fa-brands fa-facebook"></i> SPA
+        </a>
+      </div>
+    </div>
+    <button id="dark-mode-button" class="bg-white text-primary px-4 py-2 rounded hover:bg-pink-100 transition">
+      <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
+      <span id="dark-mode-text">Tryb ciemny</span>
+    </button>
   </header>
 
-  <main>
-    <div class="container">
-      <section>
-        <h2>Wybierz usługę: Hotel lub SPA Twojego Pupila</h2>
-        <a href="hotel.html" class="option">Hotel</a>
-        <a href="spa.html" class="option">Spa</a>
-      </section>
-    </div>
-    <div class="container_karuzela">
-      <section>
-        <h3>Nasi zadowoleni klienci</h3>
-        <div class="carousel"></div>
-        <button id="prev">Poprzednie</button>
-        <button id="next">Następne</button>
-      </section>
+  <!-- MAIN -->
+  <main class="flex-1 flex items-center justify-center px-6 py-12 relative overflow-hidden">
+    <img src="piesek.webp" alt="Piesek"
+      class="absolute inset-0 w-full h-full object-cover md:object-contain opacity-70" />
+    <div class="relative max-w-xl bg-white/80 dark:bg-gray-800/80 p-8 rounded-lg shadow-lg backdrop-blur-sm">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center">Cześć! Wybierz usługę, jaką potrzebujesz!</h2>
+      <div class="flex gap-4 justify-center">
+        <a href="hotel.html"
+          class="bg-primary text-white px-6 py-3 rounded hover:bg-secondary transition text-lg font-medium shadow-md">Hotel</a>
+        <a href="spa.html"
+          class="bg-primary text-white px-6 py-3 rounded hover:bg-secondary transition text-lg font-medium shadow-md">SPA</a>
+      </div>
     </div>
   </main>
 
-  <footer>
-    <p>&copy; <span id="current-year"></span> JORGUŚ Sp. z o.o.</p>
+  <!-- FOOTER -->
+  <footer class="bg-primary dark:bg-darkpink text-white text-sm text-center py-4">
+    &copy; <span id="current-year"></span> JORGUŚ Sp. z o.o.
   </footer>
 
-  <!-- Plik JS z logiką (karuzela, tryb ciemny itd.) -->
-  <script src="script.js" defer></script>
+  <!-- Usunięto powtarzający się kod JS, wstawiamy wspólny plik: -->
+  <script src="common.js" defer></script>
 </body>
+
 </html>
