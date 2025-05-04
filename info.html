@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorguś – SPA i Fryzjer dla Psów i Kotów</title>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
+  <style>
+    /* Variables & Reset */
+    :root {
+      --pink: #ff00ff;
+      --white: #ffffff;
+      --black: #000000;
+      --text-light: #eeeeee;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 18px; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      padding: 150px 0 60px;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Header */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 2%;
+      background: transparent;
+      z-index: 100;
+    }
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-link img { max-height: 200px; }
+
+    /* Navigation Buttons */
+    .nav-left a, .nav-right a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 1.4rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .nav-left{margin-left: 24px;}
+    .nav-left a { background: var(--pink); color: var(--white); }
+    .nav-right a { background: var(--white); color: var(--pink); }
+    .nav-left a:hover, .nav-right a:hover { transform: translateY(-2px); }
+
+    /* Main Grid */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto auto auto;
+      gap: 20px;
+      margin: 0 auto 20px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin-top: 100px;
+    }
+    .container > div:not(.row-title) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .image img, .image-block img {
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+    .image img{
+        width: 50%;
+    }
+    .image-block img{
+        width: 70%;
+    }
+    .content, .text-block {
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+      padding: 10px;
+      display: flex;
+    }
+    .content h1 { font-size: 2.4rem; }
+    .content h2 { font-size: 2.4rem; }
+    .content h3 { font-size: 1.9rem; color: var(--pink);}
+    .content p, .text-block p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+    .services-list {
+      list-style: none;
+      padding: 0;
+    }
+    .services-list li {
+      margin-bottom: 0.75rem;
+      font-size: 1.7rem;
+      color: var(--text-light);
+    }
+
+    /* Buttons Utility */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      background: var(--pink);
+      color: var(--white);
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 8px 0;
+      background: var(--pink);
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      z-index: 50;
+    }
+
+    .hotel-pricing {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: var(--white);
+}
+.hotel-pricing h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--pink);
+}
+
+/* --- Styl tabeli --- */
+.hotel-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+.hotel-table thead {
+  background: var(--pink);
+}
+.hotel-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.hotel-table tbody tr {
+  background: rgba(255,255,255,0.05);
+  transition: background 0.2s;
+}
+.hotel-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.1);
+}
+.hotel-table td {
+  padding: 0.75rem 1rem;
+  color: var(--white);
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.hotel-table tbody tr:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.spa-pricing {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: var(--white);
+}
+.spa-pricing h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
+}
+
+.spa-price-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.spa-price-table thead {
+  background: var(--pink);
+}
+.spa-price-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.spa-price-table tbody tr {
+  background: rgba(255,255,255,0.05);
+  transition: background 0.2s;
+}
+.spa-price-table tbody tr:nth-child(even):not(.category-row) {
+  background: rgba(255,255,255,0.1);
+}
+.spa-price-table td {
+  padding: 0.75rem 1rem;
+  color: var(--white);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  vertical-align: top;
+}
+
+.spa-price-table tbody tr:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.category-row td {
+  background: var(--pink);
+  color: var(--white);
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.dog-services td {
+  background: rgba(255,255,255,0.1);
+  font-style: italic;
+}
+
+.spa-price-table tbody tr:not(.category-row):hover td {
+  background-color: rgba(255,255,255,0.2);
+}
+
+
+/* Sekcja „Więcej informacji” pod headerem */
+.cta-info {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;       /* odstęp nad i pod */
+  grid-column: 1 / -1;   /* rozciąga na całą szerokość gridu */
+}
+.cta-info p {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;  /* dystans do przycisku */
+  margin: 0; 
+}
+.cta-info .btn {
+  /* jeśli chcesz trochę większy przycisk niż standardowy: */
+  padding: 14px 28px;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      header { flex-direction: column; }
+      .header-left, .header-right { margin: 8px 0; }
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+        padding-top: 20px;
+        margin-top: 150px;
+      }
+      .content, .text-block { text-align: center; }
+      .nav-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;       /* tu sterujesz odstępem pionowym */
+  }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <a href="index.html" class="logo-link">
+        <img src="LOGO_jorgus2.png" alt="Logo Jorguś">
+      </a>
+      <nav class="nav-left">
+        <a href="hotel.html">Hotel</a>
+        <a href="spa.html">SPA</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <nav class="nav-right">
+        <a href="https://www.facebook.com/p/jorguś-domowy-hotel-dla-psow-100093150107076/"        target="_blank"
+        rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook"></i>Hotel
+        </a>
+        <a href="https://www.facebook.com/p/Jorguś-Fryzjer-Twojego-Pupila-100063954304380/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook"></i>SPA
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="image">
+      <img src="paws.png" alt="Zdjęcie 1">
+    </div>
+    <div class="content">
+      <h1>Hotel</h1>
+      <section class="hotel-pricing">
+        <table class="hotel-table">
+          <thead>
+            <tr>
+              <th>Usługa</th>
+              <th>Cena za dobę</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 piesek</td>
+              <td>120 zł</td>
+            </tr>
+            <tr>
+              <td>2 pieski z jednego domu</td>
+              <td>200 zł</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <h3>Do hotelu przywozimy:</h3>
+      <ul class="services-list">
+        <li>Karmę na ilość dni</li>
+        <li>Kocyk lub legowisko</li>
+        <li>Ulubiona zabawka</li>
+      </ul>
+    </div>
+    <div class="text-block">
+        <section class="spa-pricing">
+            <h2>Cennik SPA</h2>
+            <table class="spa-price-table">
+              <thead>
+                <tr>
+                  <th>Usługa / Rasa</th>
+                  <th>Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="category-row"><td colspan="2">Psy</td></tr>
+                <tr class="dog-services">
+                  <td colspan="2">
+                    <small>(rozczesanie, kąpiel, czyszczenie uszu i oczu, obcinanie pazurków, strzyżenie – tylko dla psów)</small>
+                  </td>
+                </tr>
+                <tr><td>York, Biwer i w typie</td><td>150 zł</td></tr>
+                <tr><td>West i w typie</td><td>160 zł+</td></tr>
+                <tr><td>Airedale Terrier</td><td>200 zł+</td></tr>
+                <tr><td>Cavalier</td><td>170 zł+</td></tr>
+                <tr><td>Fox Terrier i w typie</td><td>180 zł</td></tr>
+                <tr><td>Maltańczyk i w typie</td><td>160 zł+</td></tr>
+                <tr><td>Mix mały</td><td>140 zł+</td></tr>
+                <tr><td>Mix średni</td><td>170 zł+</td></tr>
+                <tr><td>Pudel</td><td>170 zł</td></tr>
+                <tr><td>Pudel duży</td><td>230 zł+</td></tr>
+                <tr><td>Shih‑Tzu i w typie</td><td>160 zł+</td></tr>
+                <tr><td>Spaniel i w typie</td><td>200 zł+</td></tr>
+                <tr><td>Sznaucer średni</td><td>150 zł+</td></tr>
+                <tr><td>Terrier rosyjski</td><td>300 zł</td></tr>
+                <tr><td>Bernardyn</td><td>350 zł+</td></tr>
+                <tr><td>Chow‑Chow</td><td>250 zł+</td></tr>
+                <tr><td>Golden Retriever</td><td>250 zł+</td></tr>
+                <tr><td>Labrador</td><td>190 zł</td></tr>
+                <tr><td>Nowofundland</td><td>300 zł+</td></tr>
+                <tr><td>Owczarek długowłosy</td><td>270 zł+</td></tr>
+                <tr><td>Owczarek krótkowłosy</td><td>220 zł</td></tr>
+                <tr>
+                  <td>
+                    Pozostałe rasy<br>
+                    <small><em>(cena ustalana indywidualnie w zależności od rasy i stanu sierści)</em></small>
+                  </td>
+                  <td>140 zł+</td>
+                </tr>
+                <tr class="category-row"><td colspan="2">Koty</td></tr>
+                <tr><td>Strzyżenie</td><td>120 zł+</td></tr>
+                <tr><td>Wyczesanie</td><td>80 zł</td></tr>
+                <tr><td>Wyczesanie + kąpiel</td><td>120 zł</td></tr>
+                <tr class="category-row"><td colspan="2">Czyszczenie zębów</td></tr>
+                <tr><td>Profilaktyczne czyszczenie ząbków,<br>usunięcie lekkiego osadu i przebarwień</td><td>40 zł+</td></tr>
+                <tr><td>Usunięcie kamienia nazębnego</td><td>150 zł+</td></tr>
+                <tr><td>Usunięcie płytki nazębnej i przebarwień</td><td>100 zł+</td></tr>
+                <tr class="category-row"><td colspan="2">Opłata dodatkowa</td></tr>
+                <tr><td>Dodatkowa opłata (stan zwierzaka)</td><td>20 zł+</td></tr>
+              </tbody>
+            </table>
+          </section>
+    </div>
+    <div class="image-block">
+      <img src="paws2.png" alt="Zdjęcie 2">
+    </div>
+
+
+    <div class="cta-info">
+        <p>Więcej informacji na</p>
+        <a href="https://booksy.com/pl-pl/100767_jorgus-hotel-spa-twojego-psa_zwierzaki_4369_konstancin-jeziorna/staffer/168440#ba_s=sr_1" class="btn">Booksy</a>
+      </div>
+  </main>
+
+  <footer>© 2025 JORGUS Sp. z o.o.</footer>
+</body>
+</html>

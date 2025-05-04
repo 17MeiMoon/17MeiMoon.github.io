@@ -1,115 +1,431 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Barbara Rokicińska" />
-  <meta name="description"
-    content="Hotel dla psów Jorguś. Komfortowy pobyt, troskliwa opieka i przyjazna atmosfera dla Twojego czworonoga. Zarezerwuj miejsce już dziś.">
-  <meta name="keywords"
-    content="hotel dla psów, nocleg dla psów, opieka nad psem, rezerwacja hotelu, komfortowy pobyt, relaks dla zwierząt">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorguś – Hotel Twojego Psa</title>
 
-  <title>Jorguś – Hotel dla Psów</title>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: "#b9375e",
-            secondary: "#ec407a",
-            lightpink: "#ffe1ea",
-            darkpink: "#7a1f3a"
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Swiper CSS + Font Awesome -->
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
-</head>
+  <style>
+    /* ==========================
+       Variables & Reset
+    ========================== */
+    :root {
+      --pink: #ff00ff;
+      --white: #ffffff;
+      --black: #000000;
+      --text-light: #eeeeee;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-size: 18px;
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      /* Reserve space for fixed footer */
+      padding-bottom: 60px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-<body class="bg-lightpink dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-  <!-- HEADER -->
-  <header
-    class="bg-gradient-to-r from-primary to-secondary dark:from-darkpink dark:to-primary text-white p-6 flex flex-col md:flex-row justify-between items-center shadow-lg gap-4">
-    <div class="flex flex-col md:flex-row items-center gap-4">
-      <a href="index.html">
-        <img src="images/logo.png" alt="Logo Jorguś" class="w-16" />
-      </a>
-      <h1 class="text-2xl md:text-4xl font-bold text-center md:text-left">
-        Jorguś – Hotel Dla Psów
-      </h1>
-      <div class="flex gap-2 items-center">
-        <span>Zaobserwuj nas:</span>
-        <a href="https://www.facebook.com/p/jorguś-domowy-hotel-dla-psow-100093150107076/" target="_blank"
-          class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold flex items-center gap-1">
-          <i class="fa-brands fa-facebook"></i> Hotel
-        </a>
-        <a href="https://www.facebook.com/p/Jorguś-Fryzjer-Twojego-Pupila-100063954304380/" target="_blank"
-          class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold flex items-center gap-1">
-          <i class="fa-brands fa-facebook"></i> SPA
-        </a>
-      </div>
-    </div>
-    <button id="dark-mode-button" class="bg-white text-primary px-4 py-2 rounded hover:bg-pink-100 transition">
-      <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
-      <span id="dark-mode-text">Tryb ciemny</span>
+ /* ==========================
+       Header
+    ========================== */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 2%;
+      background: transparent;
+    }
+    /* Logo */
+    .logo-link img {
+      max-height: 200px;
+      height: auto;
+      width: auto;
+    }
+    /* Navigation buttons */
+    .header-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+    .header-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-weight: 900;
+      font-size: 1rem;
+      background: var(--white);
+      color: var(--pink);
+      transition: background 0.3s;
+    }
+    .header-buttons a.btn-dark {
+      background: var(--pink);
+      color: var(--white);
+    }
+    .header-buttons a.btn-dark:hover {
+      /* Slightly darker pink on hover */
+      background: #e600e6;
+    }
+
+      /* ==========================
+       Main Layout (Grid)
+    ========================== */
+    .container {
+      /* Top margin to clear fixed header */
+      margin: 10rem auto 20px;
+      padding: 0 20px;
+      max-width: 1400px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "hero hero-text"
+        "map map"
+        "gallery-title gallery-title"
+        "carousel carousel";
+      gap: 20px 40px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .menu-toggle {
+      display: none;
+    }
+
+    /* ==========================
+       Hero Section
+    ========================== */
+    .hero {
+      grid-area: hero;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero img.dog {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+    }
+    .hero-text {
+      grid-area: hero-text;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      /* Horizontal padding for breathing room */
+      padding: 0 2rem;
+    }
+    .hero-text h1 {
+      font-size: 2.4rem;
+    }
+    .hero-text h2 {
+      font-size: 1.9rem;
+      margin-top: 2rem;
+      color: var(--pink);
+    }
+    .hero-text p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* Button styles reused throughout */
+    .btn,
+    .header-buttons a {
+      transition: transform 0.2s;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      background: var(--pink);
+      color: var(--white);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    .btn-light {
+      background: var(--white);
+      color: var(--pink);
+    }
+
+    a.info-link {
+      text-decoration: underline;
+      color: inherit;
+      transition: color 0.2s;
+    }
+    a.info-link:hover {
+      color: var(--pink);
+    }
+
+     /* ==========================
+       Map Section
+    ========================== */
+    .map-wrapper {
+      grid-area: map;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      text-align: center;
+    }
+    .map-wrapper h4 {
+      font-size: 1.7rem;
+      margin: 1.6rem 0 1rem;
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+    }
+    .map-wrapper p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+   /* ==========================
+       Gallery & Carousel
+    ========================== */
+    .pics {
+      grid-area: gallery-title;
+      background: #111;
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .pics h3 {
+      font-size: 1.5rem;
+    }
+    .carousel {
+      grid-area: carousel;
+      display: flex;
+      justify-content: center;
+    }
+    .swiper {
+      width: 100%;
+      max-width: 1200px;
+      height: 300px;
+    }
+    .swiper-slide {
+      background: #fff;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    
+/* ==========================
+       Footer
+    ========================== */
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 8px 0;
+      background: var(--pink);
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      z-index: 50;
+    }
+  
+    /* ==========================
+       Responsive: ≤1024px
+    ========================== */
+@media (max-width: 1024px) {
+ /* Stack header vertically */
+      header {
+        flex-direction: column;
+        justify-content: center;
+      }
+      .logo-link img {
+        margin-bottom: 1rem;
+      }
+      .header-buttons {
+        justify-content: center;
+      }
+
+    /* MAIN CONTAINER */
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HERO */
+    .hero {display: flex; margin-top: 150px;}
+    .hero img.dog { max-width: 600px; }
+    .hero-text {
+      padding-left: 2rem;
+      padding-right: 2rem;
+     }
+    .hero-text h2 { 
+      font-size: 1.9rem;
+    }
+    .hero-text p { 
+      font-size: 1rem;
+    }
+    /* MAP */
+    .map-wrapper iframe.map { width: 80%;}
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-link">
+      <img src="LOGO_jorgus2.png" alt="Logo Jorguś">
+    </a>
+    <button
+      class="menu-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <i class="fa-solid fa-bars"></i>
     </button>
+    <nav class="header-buttons">
+      <a href="info.html" class="header-button btn-dark">Info</a>
+      <a
+        href="https://www.facebook.com/p/jorguś-domowy-hotel-dla-psow-100093150107076/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-facebook"></i> Hotel
+      </a>
+    </nav>
   </header>
 
-  <!-- MAIN -->
-  <main class="flex-1 container mx-auto p-6 flex">
-    <div class="grid md:grid-cols-2 gap-8 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 flex-1">
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <!-- Hero Image -->
+    <section class="hero">
+      <img src="Pies_Hotel.png" alt="Pies" class="dog">
+    </section>
 
-      <!-- LEWA KOLUMNA -->
-      <div class="flex flex-col justify-center items-center">
-        <section class="text-base md:text-lg w-full">
-          <section class="mb-6 text-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">Pierwsza wizyta? <br>Wypełnij ankietę o Twoim psie</h2>
-            <p>Aby lepiej zadbać o naszego Gościa, prosimy o wypełnienie krótkiej ankiety.</p>
-            <p>Pozwoli nam to poznać zwyczaje oraz potrzeby Twojego zwierzaka.</p>
-            <a class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-secondary transition"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform?usp=sf_link"
-              target="_blank">Przejdź do Ankiety</a>
-          </section>
-
-          <div class="text-center">
-            <h3 class="text-2xl md:text-3xl font-bold mb-4">Zadzwoń aby zarezerwować termin</h3>
-            <p><strong>Telefon:</strong><br>730 335 869</p>
-          </div>
-          
-            <p class="mt-4 text-center">
-              <strong>Adres:</strong><br>
-              Kępa Okrzewska 11G, 05-520 Kępa Okrzewska<br>
-            </p>
-          </form>
-        </section>
+    <!-- TEKST -->
+    <section class="hero-text">
+      <h1>Hotel Jorguś</h1>
+      <p style="font-size: 1.3rem;">Nasz kameralny hotel to prawdziwy dom z dużym, ogrodzonym ogrodem do swobodnej zabawy i biegania. Przyjmujemy wyłącznie psy, aby zapewnić im spokojną i przyjazną atmosferę. Każdy Gość traktowany jest indywidualnie. Twój psiak będzie miał zapewnioną opiekę, zabawę i dużo czułości! Goście naszego hotelu mogą również skorzystać z usług groomerskich w trakcie pobytu. To doskonałe rozwiązanie - Twój pies wróci do domu nie tylko wypoczęty, ale też pachnący i zadbany!</p>
+      <p style="font-size: 1.1rem;">
+        Przed rezerwacją zapoznaj się z
+        <a href="info.html" class="info-link">cennikiem i informacjami</a>
+        powyżej, aby pobyt Twojego psa był czystą przyjemnością!
+      </p>
+      </p><h2>Pierwsza wizyta?</h2>
+      <p style=" font-size: 1.2rem;">Aby lepiej zadbać o naszego Gościa prosimy o wypełnienie krótkiej ankiety.</p>
+      <div class="btn-group">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_mPm1iB0KemI5VxlxWKs33us-1GONPcNqJECJ5_hYxs3jeQ/viewform" class="btn-light btn" style="font-size: 1.3rem;"
+        target="_blank"
+        rel="noopener noreferrer">
+        Przejdź do Ankiety</a>
       </div>
 
-      <!-- PRAWA KOLUMNA: MAPA -->
-      <div class="flex flex-col justify-center">
-        <div class="border-4 border-primary rounded-lg overflow-hidden shadow-lg flex-1">
-          <iframe class="w-full h-full min-h-[400px]"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020.0615827251422!2d21.14871218862323!3d52.134807447644384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192d3347eabe0d%3A0x932e598e24beddec!2sJorgu%C5%9B%20hotel%20twojego%20pupila!5e0!3m2!1spl!2spl!4v1741888789629!5m2!1spl!2spl"
-            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+      <h2>Zarezerwuj termin</h2>
+      <div class="btn-group">
+        <span class="btn"><i class="fa-solid fa-phone"></i> 730 335 869</span>
+        <a href="https://booksy.com/pl-pl/100767_jorgus-hotel-spa-twojego-psa_zwierzaki_4369_konstancin-jeziorna/staffer/662305#ba_s=sr_1" class="btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      ><i class="fa-solid fa-globe"></i> Booksy</a>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="map-wrapper">
+      <h4>Tu jesteśmy!</h4>
+      <iframe
+        class="map"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1224.4875619793256!2d21.148729!3d52.134774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192d3347eabe0d%3A0x932e598e24beddec!2sJorgu%C5%9B%20hotel%20%26%20spa%20twojego%20psa!5e0!3m2!1spl!2spl!4v1746373881222!5m2!1spl!2spl"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+      <p style="font-size: 1.4rem;">ul. Kępa Okrzewska 11G, 05-520 Kępa Okrzewska</p>
+    </section>
+
+
+
+    
+    <!-- GALERIA -->
+    <section class="pics">
+      <h3>Nasi Zadowoleni Goście</h3>
+    </section>
+
+    <!-- KARUZELA -->
+    <div class="carousel">
+      <div class="swiper">
+        <div id="hotel-carousel-wrapper" class="swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </main>
 
-  <footer class="bg-primary dark:bg-darkpink text-white text-sm text-center py-4">
-    &copy; <span id="current-year"></span> JORGUŚ Sp. z o.o.
-  </footer>
+  <footer>© 2025 JORGUŚ Sp. z o.o.</footer>
 
-  <!-- Usunięto powtarzający się kod JS, wstawiamy wspólny plik: -->
-  <script src="common.js" defer></script>
+  <!-- FontAwesome & Swiper JS -->
+  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.header-buttons');
+
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      fetch('images_Hotel.json')
+        .then(res => res.json())
+        .then(images => {
+          const wrapper = document.getElementById('hotel-carousel-wrapper');
+          images.forEach(src => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `<img src="images_Hotel/${src}" alt="Zdjęcie zwierzaka">`;
+            wrapper.appendChild(slide);
+          });
+          new Swiper('.swiper', {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            spaceBetween: 16,
+            loop: true,
+            autoplay: { delay: 2000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+              600: { slidesPerView: 2 },
+              900: { slidesPerView: 3 }
+            }
+          });
+        })
+        .catch(err => console.error('Błąd ładowania obrazów:', err));
+    });
+  </script>
 </body>
-
 </html>

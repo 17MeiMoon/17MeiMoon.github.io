@@ -3,7 +3,7 @@
   <!-- Strona główna -->
   <url>
     <loc>https://www.jorguś-hotelspatwojegopsa.pl/index.html</loc>
-    <lastmod>2025-03-16</lastmod>
+    <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- Podstrona hotel -->
   <url>
     <loc>https://www.jorguś-hotelspatwojegopsa.pl/hotel.html</loc>
-    <lastmod>2025-03-16</lastmod>
+    <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -19,7 +19,15 @@
   <!-- Podstrona spa -->
   <url>
     <loc>https://www.jorguś-hotelspatwojegopsa.pl/spa.html</loc>
-    <lastmod>2025-03-16</lastmod>
+    <lastmod>2025-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Podstrona info -->
+  <url>
+    <loc>https://www.jorguś-hotelspatwojegopsa.pl/info.html</loc>
+    <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

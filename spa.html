@@ -2,163 +2,420 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Barbara Rokicińska" />
-  <meta name="description" 
-  content="Jorguś – SPA i fryzjer dla psów i kotów. Profesjonalne strzyżenie, kąpiele, pielęgnacja sierści, uszu i pazurów. Umów wizytę już dziś.">
-  <meta name="keywords" 
-  content="spa dla psów, fryzjer dla psów, pielęgnacja psów, strzyżenie psów, obcinanie pazurów, pielęgnacja kotów, kąpiel dla psów">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jorguś – SPA i Fryzjer dla Psów i Kotów</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: "#b9375e",
-            secondary: "#ec407a",
-            lightpink: "#ffe1ea",
-            darkpink: "#7a1f3a",
-          },
-        },
-      },
-    };
-  </script>
-
-  <!-- Swiper CSS + Font Awesome -->
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
-</head>
+  <style>
+    /* ==========================
+       Variables & Reset
+    ========================== */
+    :root {
+      --pink: #ff00ff;
+      --white: #ffffff;
+      --black: #000000;
+      --text-light: #eeeeee;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-size: 18px;
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      /* Reserve space for fixed footer */
+      padding-bottom: 60px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-<body class="bg-lightpink dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-  <!-- HEADER -->
-  <header class="bg-gradient-to-r from-primary to-secondary dark:from-darkpink dark:to-primary text-white p-6 flex flex-col md:flex-row justify-between items-center shadow-lg gap-4">
-    <div class="flex flex-col md:flex-row items-center gap-4">
-      <a href="index.html">
-        <img src="images/logo.png" alt="Logo Jorguś" class="w-16" />
-      </a>
-      <h1 class="text-2xl md:text-4xl font-bold text-center md:text-left">
-        Jorguś – SPA i Fryzjer dla Psów i Kotów
-      </h1>
-      <div class="flex gap-2 items-center">
-        <span>Zaobserwuj nas:</span>
-        <a href="https://www.facebook.com/p/jorguś-domowy-hotel-dla-psow-100093150107076/" target="_blank"
-          class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold flex items-center gap-1">
-          <i class="fa-brands fa-facebook"></i> Hotel
-        </a>
-        <a href="https://www.facebook.com/p/Jorguś-Fryzjer-Twojego-Pupila-100063954304380/" target="_blank"
-          class="bg-white text-primary px-3 py-1 rounded hover:bg-pink-100 transition text-sm font-semibold flex items-center gap-1">
-          <i class="fa-brands fa-facebook"></i> SPA
-        </a>
-      </div>
-    </div>
-    <button id="dark-mode-button" class="bg-white text-primary px-4 py-2 rounded hover:bg-pink-100 transition">
-      <i id="dark-mode-icon" class="fa-solid fa-moon"></i>
-      <span id="dark-mode-text">Tryb ciemny</span>
+ /* ==========================
+       Header
+    ========================== */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 2%;
+      background: transparent;
+    }
+    /* Logo */
+    .logo-link img {
+      max-height: 200px;
+      height: auto;
+      width: auto;
+    }
+    /* Navigation buttons */
+    .header-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+    .header-buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-weight: 900;
+      font-size: 1rem;
+      background: var(--white);
+      color: var(--pink);
+      transition: background 0.3s;
+    }
+    .header-buttons a.btn-dark {
+      background: var(--pink);
+      color: var(--white);
+    }
+    .header-buttons a.btn-dark:hover {
+      /* Slightly darker pink on hover */
+      background: #e600e6;
+    }
+
+      /* ==========================
+       Main Layout (Grid)
+    ========================== */
+    .container {
+      /* Top margin to clear fixed header */
+      margin: 10rem auto 20px;
+      padding: 0 20px;
+      max-width: 1400px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "hero hero-text"
+        "map map"
+        "gallery-title gallery-title"
+        "carousel carousel";
+      gap: 20px 40px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .menu-toggle {
+      display: none;
+    }
+
+    /* ==========================
+       Hero Section
+    ========================== */
+    .hero {
+      grid-area: hero;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero img.dog {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+    }
+    .hero-text {
+      grid-area: hero-text;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      /* Horizontal padding for breathing room */
+      padding: 0 2rem;
+    }
+    .hero-text h1 {
+      font-size: 2.4rem;
+    }
+    .hero-text h2 {
+      font-size: 1.9rem;
+      margin-top: 2rem;
+      color: var(--pink);
+    }
+    .hero-text p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* Button styles reused throughout */
+    .btn,
+    .header-buttons a {
+      transition: transform 0.2s;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      background: var(--pink);
+      color: var(--white);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    .btn-light {
+      background: var(--white);
+      color: var(--pink);
+    }
+
+    .services-list {
+      list-style: disc inside;
+      list-style: none;    /* usuwa kropki */
+      padding: 0;          /* resetuje wcięcie */
+    }
+
+    .services-list li {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+
+     /* ==========================
+       Map Section
+    ========================== */
+    .map-wrapper {
+      grid-area: map;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      text-align: center;
+    }
+    .map-wrapper h4 {
+      font-size: 1.7rem;
+      margin: 1.6rem 0 1rem;
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+    }
+    .map-wrapper p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+   /* ==========================
+       Gallery & Carousel
+    ========================== */
+    .pics {
+      grid-area: gallery-title;
+      background: #111;
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .pics h3 {
+      font-size: 1.5rem;
+    }
+    .carousel {
+      grid-area: carousel;
+      display: flex;
+      justify-content: center;
+    }
+    .swiper {
+      width: 100%;
+      max-width: 1200px;
+      height: 300px;
+    }
+    .swiper-slide {
+      background: #fff;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    
+/* ==========================
+       Footer
+    ========================== */
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 8px 0;
+      background: var(--pink);
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      z-index: 50;
+    }
+  
+    /* ==========================
+       Responsive: ≤1024px
+    ========================== */
+@media (max-width: 1024px) {
+ /* Stack header vertically */
+      header {
+        flex-direction: column;
+        justify-content: center;
+      }
+      .logo-link img {
+        margin-bottom: 1rem;
+      }
+      .header-buttons {
+        justify-content: center;
+      }
+
+    /* MAIN CONTAINER */
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HERO */
+    .hero {display: flex; margin-top: 150px;}
+    .hero img.dog { max-width: 600px; }
+    .hero-text {
+      padding-left: 2rem;
+      padding-right: 2rem;
+     }
+    .hero-text h2 { 
+      font-size: 1.9rem;
+    }
+    .hero-text p { 
+      font-size: 1rem;
+    }
+    /* MAP */
+    .map-wrapper iframe.map { width: 80%;}
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-link">
+      <img src="LOGO_jorgus2.png" alt="Logo Jorguś">
+    </a>
+    <button
+      class="menu-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <i class="fa-solid fa-bars"></i>
     </button>
+    <nav class="header-buttons">
+      <a href="info.html" class="header-button btn-dark">Cennik</a>
+      <a
+        href="https://www.facebook.com/p/Jorguś-Fryzjer-Twojego-Pupila-100063954304380/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-facebook"></i> SPA
+      </a>
+    </nav>
   </header>
 
-  <!-- MAIN -->
-  <main class="flex-1 flex flex-col">
-    <div class="flex-1 container mx-auto p-6 flex flex-col">
-      <div class="flex-1 grid md:grid-cols-2 gap-8 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 items-stretch">
-        <!-- Sekcja informacji i mapy -->
-        <div id="info-section" class="flex flex-col justify-center items-center h-full">
-          <div class="w-full text-center text-base md:text-lg">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">Zabiegi SPA i fryzjerskie dla psów i kotów</h2>
-            <ul class="list-disc list-inside mt-2 space-y-1">
-              <li>Strzyżenie</li>
-              <li>Obcinanie pazurów</li>
-              <li>Pielęgnacja uszu i oczu</li>
-              <li>Kąpiel i pielęgnacja sierści</li>
-            </ul>
-            <a href="https://booksy.com/pl-pl/100767_jorgus-fryzjer-twojego-pupila_zwierzaki_4369_konstancin-jeziorna#ba_s=sr_1" class="mt-4 inline-block px-4 py-2 bg-primary text-white rounded-md hover:bg-secondary transition font-medium text-base md:text-lg">Umów wizytę</a>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <img src="Pies_Spa.png" alt="Pies" class="dog">
+    </section>
 
-            <p class="mt-4">
-              <strong>Adres:</strong><br>
-              Kolejowa 44, 05-520 Konstancin-Jeziorna<br>
-              <strong>Telefon:</strong><br> 730 335 869
-            </p>
+    <!-- TEKST -->
+    <section class="hero-text">
+      <h1>Zabiegi SPA i fryzjerskie dla psów i kotów</h1>
+      <p style="font-size: 1.3rem;">Twój pupil zasługuje na wszystko, co najlepsze – dlatego powstał <span style="color: var(--pink);">Jorguś</span>, miejsce stworzone z miłości do zwierząt. Oferujemy kompleksową pielęgnację dla psów i kotów, łącząc profesjonalizm, doświadczenie oraz ciepłe podejście do każdego czworonoga. Tu mruczenie spotyka merdanie - bo każdy zwierzak wychodzi szczęśliwy!</p>
+      <h2>Nasze usługi</h2>
+        <ul class="services-list">
+          <li>Strzyżenie</li>
+          <li>Obcinanie pazurów</li>
+          <li>Pielęgnacja uszu i oczu</li>
+          <li>Kąpiel i pielęgnacja sierści</li>
+        </ul>
+      <div class="btn-group">
+        <a href="https://booksy.com/pl-pl/100767_jorgus-hotel-spa-twojego-psa_zwierzaki_4369_konstancin-jeziorna#ba_s=sr_1" class="btn-dark btn" style="font-size: 1.3rem;"
+        target="_blank"
+        rel="noopener noreferrer">
+        Umów wizytę</a>
+      </div>
+    </section>
 
-            <div class="mt-6 border-4 border-primary rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                class="w-full h-[300px] md:h-[400px] border-0"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.2459670386997!2d21.11359217783015!3d52.093454971952454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192c1984bcadd7%3A0x8e8c245c609e4bb3!2sJorgu%C5%9B%20Fryzjer%20Twojego%20Pupila!5e0!3m2!1spl!2spl!4v1742402882570!5m2!1spl!2spl"
-                allowfullscreen
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-          </div>
-        </div>
+    <!-- MAPA -->
+    <section class="map-wrapper">
+      <h4>Tu jesteśmy!</h4>
+      <iframe
+        class="map"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4902.491930995347!2d21.116167000000004!3d52.093455!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192c1984bcadd7%3A0x8e8c245c609e4bb3!2sJorgu%C5%9B%20Fryzjer%20Twojego%20Pupila!5e0!3m2!1spl!2spl!4v1746381694803!5m2!1spl!2spl"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+      <p style="font-size: 1.4rem;">ul. Kolejowa 44, 05-520 Konstancin-Jeziorna</p>
+    </section>
 
-        <!-- Sekcja slidera ze zdjęciami -->
-        <div class="relative h-full">
-          <div class="swiper h-full">
-            <div class="swiper-wrapper" id="spa-carousel-wrapper"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
+    <!-- GALERIA -->
+    <section class="pics">
+      <h3>Nasi Zadowoleni Goście</h3>
+    </section>
 
+    <!-- KARUZELA -->
+    <div class="carousel">
+      <div class="swiper">
+        <div id="spa-carousel-wrapper" class="swiper-wrapper"></div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-primary dark:bg-darkpink text-white text-sm text-center py-4">
-    &copy; <span id="current-year"></span> JORGUŚ Sp. z o.o.
-  </footer>
+  <footer>© 2025 JORGUŚ Sp. z o.o.</footer>
 
-  <!-- Swiper JS -->
+  <!-- FontAwesome & Swiper JS -->
+  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Skrypt inicjalizujący karuzelę i ładujący obrazy (pozostawiamy, bo to nie jest powtarzający się kod) -->
   <script>
-    // Funkcja dopasowująca wysokość karuzeli do sekcji obok
-    function setCarouselHeight() {
-      const infoSection = document.getElementById("info-section");
-      const swiperContainer = document.querySelector(".swiper");
-      if (infoSection && swiperContainer) {
-        swiperContainer.style.height = `${infoSection.clientHeight}px`;
-      }
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.header-buttons');
 
-    // Pobranie listy obrazów z images.json i inicjalizacja Swiper
-    fetch("images.json")
-      .then(response => response.json())
-      .then(images => {
-        const wrapper = document.getElementById("spa-carousel-wrapper");
-        wrapper.innerHTML = "";
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
 
-        images.forEach(image => {
-          const slide = document.createElement("div");
-          slide.classList.add("swiper-slide", "flex", "justify-center");
-          slide.innerHTML = `<img src="images/${image}" class="w-11/12 h-auto object-cover rounded-lg shadow-lg" alt="Zdjęcie zwierzaka">`;
-          wrapper.appendChild(slide);
-        });
-
-        setCarouselHeight();
-
-        new Swiper(".swiper", {
-          direction: "vertical",
-          slidesPerView: 2,
-          spaceBetween: 20,
-          loop: true,
-          autoplay: {
-            delay: 2000,
-          },
-        });
-      })
-      .catch(error => console.error("Wystąpił problem z wczytaniem obrazów:", error));
-
-    window.addEventListener("resize", setCarouselHeight);
+      fetch('images_Spa.json')
+        .then(res => res.json())
+        .then(images => {
+          const wrapper = document.getElementById('spa-carousel-wrapper');
+          images.forEach(src => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `<img src="images_Hotel/${src}" alt="Zdjęcie zwierzaka">`;
+            wrapper.appendChild(slide);
+          });
+          new Swiper('.swiper', {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            spaceBetween: 16,
+            loop: true,
+            autoplay: { delay: 2000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: {
+              600: { slidesPerView: 2 },
+              900: { slidesPerView: 3 }
+            }
+          });
+        })
+        .catch(err => console.error('Błąd ładowania obrazów:', err));
+    });
   </script>
-
-  <!-- Wspólny plik JS (tryb ciemny, rok w stopce) -->
-  <script src="common.js" defer></script>
 </body>
 </html>
