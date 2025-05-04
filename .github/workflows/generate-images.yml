@@ -1,4 +1,4 @@
-name: Generate images.json
+name: Generate images JSON files
 
 on:
   push:
@@ -24,17 +24,18 @@ jobs:
         with:
           node-version: 16
 
-      - name: Generate images.json
+      - name: Generate images JSON files
         run: node generate-images-json.js
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add images.json
+          # dodajemy oba pliki na raz
+          git add images_*.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore: update images.json [skip ci]"
+            git commit -m "chore: update images JSON files [skip ci]"
             git push
           fi
