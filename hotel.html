@@ -3,8 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorguś – Hotel Twojego Psa</title>
+  <!-- zoptymalizowany <title> -->
+    <title>Jorguś – Hotel Twojego Psa w Kępie Okrzewskiej | Komfort i Opieka</title>
 
+    <!-- Meta SEO -->
+    <meta name="description" content="Jorguś – kameralny hotel dla psów w Kępie Okrzewskiej. Zarezerwuj już dziś!" />
+    <meta name="keywords" content="hotel dla psa, pensjonat dla psów, opieka weterynaryjna, ogród dla psów, grooming, Jorguś Hotel, Kępa Okrzewska, Jorguś" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Jorguś Sp. z o.o." />
+
+    <!-- JSON-LD: struktura danych -->
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@graph":[
+        {
+          "@type":"BreadcrumbList",
+          "itemListElement":[
+            {
+              "@type":"ListItem",
+              "position":1,
+              "name":"Strona Główna",
+              "item":"https://www.jorguś-hotelspatwojegopsa.pl/"
+            },
+            {
+              "@type":"ListItem",
+              "position":2,
+              "name":"Hotel",
+              "item":"https://www.jorguś-hotelspatwojegopsa.pl/hotel.html"
+            }
+          ]
+        },
+        {
+          "@type":"Service",
+          "name":"Hotel dla Psów",
+          "description":"Kameralny hotel dla psów w Konstancinie-Jeziornie z dużym ogrodem, indywidualnymi pokojami, groomingiem i opieką weterynaryjną.",
+          "provider": {
+            "@type":"PetHotel",
+            "name":"Jorguś",
+            "url":"https://www.jorguś-hotelspatwojegopsa.pl/"
+          },
+          "areaServed": {
+            "@type":"City",
+            "name":"Konstancin-Jeziorna"
+          },
+          "serviceType":[ "Pobyt", "Grooming", "Opieka weterynaryjna" ],
+          "url":"https://www.jorguś-hotelspatwojegopsa.pl/hotel.html",
+          "openingHoursSpecification": {
+            "@type":"OpeningHoursSpecification",
+            "dayOfWeek":[ "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday" ],
+            "opens":"08:00",
+            "closes":"20:00"
+          }
+        }
+      ]
+    }
+    </script>
+  
+  
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
