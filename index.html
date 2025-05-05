@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+  <!-- Podstawowe meta informacje -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- zoptymalizowany <title> -->
-    <title>Jorguś – Hotel &amp; SPA dla Psa | Komfort, Pielęgnacja, Opieka</title>
 
-    <!-- Meta SEO -->
+  <!-- <title> oraz SEO -->
+    <title>Jorguś – Hotel &amp; SPA dla Psa | Komfort, Pielęgnacja, Opieka</title>
     <meta name="description" content="Jorguś to ekskluzywny hotel i SPA dla psów. Zarezerwuj już dziś!" />
     <meta name="keywords" content="hotel dla psa, SPA dla psów, SPA dla kotów, groomer, hotel dla zwierząt, pielęgnacja psów, Jorguś" />
     <meta name="robots" content="index, follow" />
@@ -17,273 +17,363 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Jorguś – Hotel & SPA Twojego Psa",
-        "url": "https://www.xn--jorgu-hotelspatwojegopsa-uqe.pl/",
-        "logo": "https://www.xn--jorgu-hotelspatwojegopsa-uqe.pl/LOGO_jorgus2.png"
-      }
-      </script>
+  <!-- Breadcrumbs i szczegóły usługi PetHotel -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Strona Główna",
+              "item": "https://www.jorgus-hotelspatwojegopsa.pl/"
+            }
+          ]
+        },
+        {
+          "@type": "PetHotel",
+          "name": "Jorguś",
+          "description": "Kameralny hotel i SPA dla psów z indywidualnym podejściem, groomingiem",
+          "url": "https://www.jorgus-hotelspatwojegopsa.pl/",
+          "telephone": "+48 730 335 869",
+          "priceRange": "PLN"
+        }
+      ]
+    }
+  </script>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Strona Główna",
-                "item": "https://www.jorgus-hotelspatwojegopsa.pl/"
-              }
-            ]
-          },
-          {
-            "@type": "PetHotel",
-            "name": "Jorguś",
-            "description": "Kameralny hotel i SPA dla psów z indywidualnym podejściem, groomingiem",
-            "url": "https://www.jorgus-hotelspatwojegopsa.pl/",
-            "telephone": "+48 730 335 869",
-            "priceRange": "PLN"
-          }
-        ]
-      }
-      </script>
+  <!-- Łączenie z zewnętrznymi fontami i ikonami -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
 
-  <!-- Google Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Font Awesome -->
-  <script
-    src="https://kit.fontawesome.com/50f99e18bc.js"
-    crossorigin="anonymous"
-    defer
-  ></script>
-
+ <!-- Główne style -->
   <style>
-:root {
-  --pink: #ff00ff;
-  --white: #ffffff;
-  --black: #000000;
-  --text-light: #eeeeee;
-  --text-dark: #111111;
-  --header-height: 220px;
-  --footer-height: 60px;
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html {
-  font-size: 18px;
-}
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: 'Roboto', Arial, sans-serif;
-  overflow-x: hidden;
-  padding-top: var(--header-height);
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--header-height);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 2%;
-  background: transparent;
-}
-.logo {
-  height: calc(var(--header-height) - 20px);
-  height: 200px;
-}
-.social {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 1.2rem;
-  font-weight: 900;
-}
-.social span {
-  font-size: 1.8rem;
-}
-.social a {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--white);
-  color: var(--pink);
-  padding: 16px 32px;
-  border-radius: 25px;
-  font-weight: 900;
-  font-size: 1.6rem;
-  transition: background 0.3s;
-}
-.social a:hover {
-  background: #e6e6e6;
-}
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: calc(100vh - var(--header-height)); /* zmienione: zapewnia minimalną wysokość */
-  display: flex;
-  align-items: flex-start;
-  padding: 2rem 8% 0;
-  /* overflow hidden usunięte, by zawartość nie była obcinana */
-}
-.hero .text {
-  width: 60%;
-  z-index: 5;
-  margin-bottom: 4rem;
-}
-.hero h1 {
-  font-size: 6rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-.hero p {
-  font-size: 1.9rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-  color: var(--text-light);
-}
-.hero h2 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-.hero .buttons {
-  display: flex;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-.hero .buttons a {
-  display: inline-flex;
-  align-items: center;
-  gap: 24px;
-  padding: 2rem 5rem;
-  background: var(--pink);
-  color: var(--white);
-  border-radius: 50px;
-  font-size: 2.4rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  box-shadow: 0 6px 15px rgba(255, 0, 255, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  white-space: nowrap;
-}
-.hero .buttons a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(255, 0, 255, 0.4);
-}
-.dog {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  max-width: 50%;
-  max-height: 90vh;
-  z-index: 1;
-  opacity: 0.9;
-}
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: var(--footer-height);
-  padding: 8px 0;
-  background: var(--pink);
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 500;
-  z-index: 50;
-}
-@media (max-width: 1024px) {
-  header {position: static; height: auto; flex-direction: column; align-items: center; padding: 0 0;}
-  body {padding-top: 2rem;} 
-  .social {position: static; transform: none; margin-bottom: 1rem; gap: 1rem; justify-content: center;}
-  .social a {padding: 0.8rem 1.5rem; font-size: 1.5rem;}
-  .social span {display: none;}
-  .hero {flex-direction: column; align-items: center; padding: 3rem 6% 0; height: auto;}  
-  .hero .text {width: 80%; margin-bottom: 2rem;text-align: center;}
-  .dog {max-height: 70vh; opacity: 0.7; position: fixed;}
-}
-@media (max-width: 768px) {
-  .hero {padding: 1rem 8% 0;}
-  .hero h1 {font-size: 3.9rem;}
-  .hero h2 {font-size: 3rem;}
-  .hero p {font-size: 1.4rem;}
-  .hero .buttons a {font-size: 2rem; padding: 1rem 2rem; }
-  .hero .text { width: 100%; max-width: 400px; margin: 0 auto 2rem; }
-  .hero .buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-  .dog {max-width: 100%; max-height: 80%; opacity: 0.6; z-index: -1}
-  footer {font-size: 1rem; padding: 0.8rem 0;}
-}
+    /* ===========
+      Zmienne oraz reset stylów
+    =========== */
+    :root {
+      --pink: #ff00ff;
+      --white: #ffffff;
+      --black: #000000;
+      --text-light: #eeeeee;
+      --text-dark: #111111;
+      --header-height: 220px;
+      --footer-height: 50px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-size: 18px;
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Roboto', Arial, sans-serif;
+      overflow-x: hidden;
+      padding-top: var(--header-height);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===========
+       Nagłówek (header)
+    =========== */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 2%;
+      background: transparent;
+      transform: translateY(20px);
+    }
+    .logo {
+      /* klasyczna wysokość logotypu */
+      height: calc(var(--header-height) - 20px);
+      height: 200px;
+    }
+
+    /* ===========
+       Nawigacja społecznościowa
+    =========== */
+    .social {
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+    .social span {
+      font-size: 1.8rem;
+    }
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      color: var(--pink);
+      padding: 16px 32px;
+      border-radius: 25px;
+      font-weight: 900;
+      font-size: 1.6rem;
+      transition: background 0.3s;
+    }
+    .social a:hover {
+      background: #e6e6e6;
+    }
+
+    /* ===========
+       Sekcja hero (baner główny)
+    =========== */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      align-items: flex-start;
+      padding: 2rem 8% 0;
+    }
+    .hero .text {
+      width: 60%;
+      z-index: 5;
+      margin-bottom: 4rem;
+    }
+    .hero h1 {
+      font-size: 6rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.9rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    .hero .buttons {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .hero .buttons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding: 1rem 3rem;
+      background: var(--pink);
+      color: var(--white);
+      border-radius: 50px;
+      font-size: 2.4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 0 6px 15px rgba(255, 0, 255, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      white-space: nowrap;
+    }
+    .hero .buttons a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(255, 0, 255, 0.4);
+    }
+
+    /* ===========
+       Obrazek psa w tle
+    =========== */
+    .dog {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      max-width: 50%;
+      max-height: 87vh;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    /* ===========
+       Stopka (footer)
+    =========== */
+    footer {
+      position: static;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: var(--footer-height);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--pink);   
+      font-size: 1rem;
+      font-weight: 500;
+      z-index: 50;
+    }
+    /* ===========
+       Responsywność
+    =========== */
+    @media (max-width: 1024px) {
+      header {
+        position: static;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        transform: translateY(0px);
+      }
+      body {
+        padding-top: 2rem;
+      }
+      .social {
+        position: static;
+        transform: none;
+        margin-bottom: 1rem;
+        gap: 1rem;
+        justify-content: center;
+      }
+      .social a {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.5rem;
+      }
+      .social span {
+        display: none;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 6% 1;
+        height: auto;
+      }
+      .hero .text {
+        width: 80%;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .dog {
+        max-width: 100%;
+        max-height: 80%;
+        opacity: 0.7;
+        position: fixed;
+        z-index: -1;
+      }
+      footer {
+      background: transparent;   
+    }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 1rem 8% 0;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+      .hero h2 {
+        font-size: 3rem;
+      }
+      .hero p {
+        font-size: 1.4rem;
+      }
+      .hero .buttons a {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+      }
+      .hero .text {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 2rem;
+      }
+      .hero .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .dog {
+        max-width: 100%;
+        max-height: 80%;
+        opacity: 0.6;
+        z-index: -1;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- ========== Nagłówek strony ========== -->
   <header>
-    <a href="index.html"><img src="LOGO_jorgus2.png" alt="Logo Jorguś" class="logo" /></a>
+    <a href="index.html">
+      <img src="LOGO_jorgus2.png" alt="Logo Jorguś" class="logo" />
+    </a>
     <nav class="social">
       <span>Zaobserwuj nas:</span>
-      <a href="https://www.facebook.com/p/jorguś-domowy-hotel-dla-psow-100093150107076/"
-      target="_blank"
-      rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> Hotel</a>
-      <a href="https://www.facebook.com/p/Jorguś-Fryzjer-Twojego-Pupila-100063954304380/"
-      target="_blank"
-      rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> SPA</a>
+      <a
+        href="https://www.facebook.com/p/jorguś-domowy-hotel-dla-psow-100093150107076/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-facebook"></i> Hotel
+      </a>
+      <a
+        href="https://www.facebook.com/p/Jorguś-Fryzjer-Twojego-Pupila-100063954304380/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-facebook"></i> SPA
+      </a>
     </nav>
   </header>
 
+  <!-- ========== Sekcja główna (hero) ========== -->
   <main>
     <section class="hero">
       <div class="text">
-      <h1>Jorguś – Hotel &amp; SPA Twojego Psa</h1>
-      <p>
-        To kameralne miejsce stworzone z myślą o komforcie i bezpieczeństwie Twojego
-        pupila. Oferujemy domową atmosferę, indywidualne podejście oraz codzienną
-        porcję czułości i zabawy. Na miejscu dostępne są również usługi groomerskie
-        – kąpiele, strzyżenie i pielęgnacja sierści – wykonywane przez doświadczonego
-        groomera. Dbamy o zdrowie naszych podopiecznych, zapewniając stały nadzór
-        wykwalifikowanego weterynarza. U nas Twój pies poczuje się jak w domu!
-      </p>
-      <h2>Wybierz usługę jakiej potrzebujesz!</h2>
-      <div class="buttons">
-        <a href="hotel.html">Hotel</a>
-        <a href="spa.html">SPA</a>
+        <h1>Jorguś – Hotel &amp; SPA Twojego Psa</h1>
+        <p>
+          To kameralne miejsce stworzone z myślą o komforcie i bezpieczeństwie
+          Twojego pupila. Oferujemy domową atmosferę, indywidualne podejście
+          oraz codzienną porcję czułości i zabawy. Na miejscu dostępne są również
+          usługi groomerskie – kąpiele, strzyżenie i pielęgnacja sierści –
+          wykonywane przez doświadczonego groomera. Dbamy o zdrowie naszych
+          podopiecznych, zapewniając stały nadzór wykwalifikowanego technika weterynarii.
+          U nas Twój pies poczuje się jak w domu!
+        </p>
+        <h2>Wybierz usługę jakiej potrzebujesz!</h2>
+        <div class="buttons">
+          <a href="hotel.html">Hotel</a>
+          <a href="spa.html">SPA</a>
+        </div>
       </div>
-    </div>
-    <img src="Pies_tlo.png" alt="Szczęśliwy pies w hotelu Jorguś" class="dog" />
-  </section>
-</main>
+      <img
+        src="Pies_tlo.png"
+        alt="Szczęśliwy pies w hotelu Jorguś"
+        class="dog"
+      />
+    </section>
+  </main>
 
-  <footer>© 2025 JORGUŚ Sp. z o.o.</footer>
+  <!-- ========== Stopka ========== -->
+  <footer>
+    © 2025 JORGUŚ Sp. z o.o.
+  </footer>
 </body>
 </html>

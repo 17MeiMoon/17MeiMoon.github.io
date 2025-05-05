@@ -1,83 +1,67 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorguś – SPA i Fryzjer dla Psów i Kotów w Konstancinie-Jeziornie | Pielęgnacja Pupila</title>
-
+  <head>
+    <!-- ======================= -->
+    <!-- Podstawowe ustawienia -->
+    <!-- ======================= -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Meta SEO -->
-  <meta name="description" content="Jorguś SPA i fryzjer dla psów i kotów w Konstancinie-Jeziornie. Strzyżenie, kąpiele, pielęgnacja pazurów, oczu i uszu. Umów wizytę online!" />
-  <meta name="keywords" content="SPA dla psa, groomer, strzyżenie psa, kąpiel psa, pielęgnacja kota, grooming kotów, Jorguś SPA, Konstancin-Jeziorna, Jorguś" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Jorguś Sp. z o.o." />
+    <!-- ======================= -->
+    <!-- Tytuł i SEO strony SPA -->
+    <!-- ======================= -->
+    <title>Jorguś – SPA i Fryzjer dla Psów i Kotów w Konstancinie-Jeziornie | Pielęgnacja Pupila</title>
+    <meta name="description" content="Jorguś SPA i fryzjer dla psów i kotów w Konstancinie-Jeziornie. Strzyżenie, kąpiele, pielęgnacja pazurów, oczu i uszu. Umów wizytę online!" />
+    <meta name="keywords" content="SPA dla psa, groomer, strzyżenie psa, kąpiel psa, pielęgnacja kota, grooming kotów, Jorguś SPA, Konstancin-Jeziorna, Jorguś" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Jorguś Sp. z o.o." />
 
-    <!-- Kanoniczny URL & sitemap -->
+    <!-- ======================= -->
+    <!-- Kanoniczny adres i mapa strony -->
+    <!-- ======================= -->
     <link rel="canonical" href="https://www.jorguś-hotelspatwojegopsa.pl/spa.html" />
     <link rel="sitemap" href="/sitemap.xml" />
 
-
-    <!-- JSON-LD: struktura danych -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Strona Główna",
-              "item": "https://www.jorguś-hotelspatwojegopsa.pl/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "SPA",
-              "item": "https://www.jorguś-hotelspatwojegopsa.pl/spa.html"
-            }
-          ]
-        },
-        {
-          "@type": "Service",
-          "name": "SPA i Fryzjer dla Psów i Kotów",
-          "description": "Kompleksowa pielęgnacja psów i kotów w Jorguś SPA w Konstancinie-Jeziornie: strzyżenie, kąpiele, pielęgnacja pazurów, oczu i uszu.",
-          "provider": {
-            "@type": "PetHotel",
-            "name": "Jorguś",
-            "url": "https://www.jorguś-hotelspatwojegopsa.pl/"
+    <!-- ======================= -->
+    <!-- JSON-LD: struktura danych dla wyszukiwarek -->
+    <!-- ======================= -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem","position": 1,"name": "Strona Główna","item": "https://www.jorguś-hotelspatwojegopsa.pl/"},
+              {"@type": "ListItem","position": 2,"name": "SPA","item": "https://www.jorguś-hotelspatwojegopsa.pl/spa.html"}
+            ]
           },
-          "areaServed": {
-            "@type": "City",
-            "name": "Konstancin-Jeziorna"
-          },
-          "serviceType": [
-            "Strzyżenie",
-            "Kąpiel",
-            "Pielęgnacja pazurów",
-            "Pielęgnacja uszu i oczu"
-          ],
-          "url": "https://www.jorguś-hotelspatwojegopsa.pl/spa.html",
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
-            ],
-            "opens": "08:00",
-            "closes": "20:00"
+          {
+            "@type": "Service",
+            "name": "SPA i Fryzjer dla Psów i Kotów",
+            "description": "Kompleksowa pielęgnacja psów i kotów w Jorguś SPA w Konstancinie-Jeziornie: strzyżenie, kąpiele, pielęgnacja pazurów, oczu i uszu.",
+            "provider": {"@type": "PetHotel","name": "Jorguś","url": "https://www.jorguś-hotelspatwojegopsa.pl/"},
+            "areaServed": {"@type": "City","name": "Konstancin-Jeziorna"},
+            "serviceType": ["Strzyżenie","Kąpiel","Pielęgnacja pazurów","Pielęgnacja uszu i oczu"],
+            "url": "https://www.jorguś-hotelspatwojegopsa.pl/spa.html",
+            "openingHoursSpecification": {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens": "08:00","closes": "20:00"}
           }
-        }
-      ]
-    }
+        ]
+      }
     </script>
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-  <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
+    <!-- ======================= -->
+    <!-- Zewnętrzne style i ikony -->
+    <!-- ======================= -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/50f99e18bc.js" crossorigin="anonymous" defer></script>
+
+  <!-- ========================= -->
+  <!-- Główne style wbudowane -->
+  <!-- ========================= -->
   <style>
-    /* ==========================
-       Variables & Reset
-    ========================== */
+    /* ------------------------- */
+    /* Zmienne globalne i reset */
+    /* ------------------------- */
     :root {
       --pink: #ff00ff;
       --white: #ffffff;
@@ -95,19 +79,17 @@
     body {
       background: var(--black);
       color: var(--white);
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
       overflow-x: hidden;
-      /* Reserve space for fixed footer */
-      padding-bottom: 60px;
     }
     a {
       text-decoration: none;
       color: inherit;
     }
 
- /* ==========================
-       Header
-    ========================== */
+    /* ------------------------- */
+    /* Nagłówek - logo i menu   */
+    /* ------------------------- */
     header {
       position: absolute;
       top: 0;
@@ -120,13 +102,11 @@
       padding: 10px 2%;
       background: transparent;
     }
-    /* Logo */
     .logo-link img {
       max-height: 200px;
       height: auto;
       width: auto;
     }
-    /* Navigation buttons */
     .header-buttons {
       display: flex;
       gap: 12px;
@@ -153,9 +133,9 @@
       background: #e600e6;
     }
 
-      /* ==========================
-       Main Layout (Grid)
-    ========================== */
+    /* ------------------------- */
+    /* Siatka główna (grid)     */
+    /* ------------------------- */
     .container {
       /* Top margin to clear fixed header */
       margin: 10rem auto 20px;
@@ -172,14 +152,10 @@
       position: relative;
       z-index: 1;
     }
-    
-    .menu-toggle {
-      display: none;
-    }
 
-    /* ==========================
-       Hero Section
-    ========================== */
+    /* ------------------------- */
+    /* Sekcja hero - grafika i tekst */
+    /* ------------------------- */
     .hero {
       grid-area: hero;
       display: flex;
@@ -214,7 +190,9 @@
       line-height: 1.4;
     }
 
-    /* Button styles reused throughout */
+    /* ------------------------- */
+    /* Przyciski - wspólny styl  */
+    /* ------------------------- */
     .btn,
     .header-buttons a {
       transition: transform 0.2s;
@@ -237,26 +215,27 @@
       color: var(--pink);
     }
 
+    /* ------------------------- */
+    /* Lista usług SPA            */
+    /* ------------------------- */
     .services-list {
       list-style: disc inside;
-      list-style: none;    /* usuwa kropki */
-      padding: 0;          /* resetuje wcięcie */
+      list-style: none;
+      padding: 0;
     }
-
     .services-list li {
       margin-bottom: 0.75rem;
       font-size: 1.1rem;
       color: var(--text-light);
     }
 
-     /* ==========================
+    /* ==========================
        Map Section
     ========================== */
     .map-wrapper {
       grid-area: map;
-      padding-left: 2rem;
-      padding-right: 2rem;
       text-align: center;
+      padding: 0 10%;
     }
     .map-wrapper h4 {
       font-size: 1.7rem;
@@ -272,6 +251,7 @@
       color: var(--text-light);
       margin-top: 8px;
     }
+
    /* ==========================
        Gallery & Carousel
     ========================== */
@@ -308,18 +288,21 @@
       object-fit: cover;
       border-radius: 12px;
     }
-    
-/* ==========================
-       Footer
-    ========================== */
+
+    /* ==========================
+    /*  Stopka                   */
+    /* ------------------------- */
     footer {
-      position: fixed;
+      position: static;
       left: 0;
       bottom: 0;
       width: 100%;
-      padding: 8px 0;
-      background: var(--pink);
-      text-align: center;
+      height: var(--footer-height);
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;   
       font-size: 1rem;
       font-weight: 500;
       z-index: 50;
@@ -328,43 +311,40 @@
     /* ==========================
        Responsive: ≤1024px
     ========================== */
-@media (max-width: 1024px) {
- /* Stack header vertically */
-      header {
-        flex-direction: column;
-        justify-content: center;
-      }
-      .logo-link img {
-        margin-bottom: 1rem;
-      }
-      .header-buttons {
-        justify-content: center;
-      }
+    @media (max-width: 1024px) {
+          header {
+            flex-direction: column;
+            justify-content: center;
+          }
+          .logo-link img {
+            margin-bottom: 1rem;
+          }
+          .header-buttons {
+            justify-content: center;
+          }
 
-    /* MAIN CONTAINER */
-    .container {
-      display: flex;
-      flex-direction: column;
+        /* MAIN CONTAINER */
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* HERO */
+        .hero {display: flex; margin-top: 150px;}
+        .hero img.dog { max-width: 600px; }
+        .hero-text {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+        .hero-text h2 { 
+          font-size: 1.9rem;
+        }
+        .hero-text p { 
+          font-size: 1rem;
+        }
+        /* MAP */
+        .map-wrapper iframe.map { width: 80%;}
     }
-
-    /* HERO */
-    .hero {display: flex; margin-top: 150px;}
-    .hero img.dog { max-width: 600px; }
-    .hero-text {
-      padding-left: 2rem;
-      padding-right: 2rem;
-     }
-    .hero-text h2 { 
-      font-size: 1.9rem;
-    }
-    .hero-text p { 
-      font-size: 1rem;
-    }
-    /* MAP */
-    .map-wrapper iframe.map { width: 80%;}
-}
-
-
   </style>
 </head>
 <body>
@@ -372,13 +352,6 @@
     <a href="index.html" class="logo-link">
       <img src="LOGO_jorgus2.png" alt="Logo Jorguś">
     </a>
-    <button
-      class="menu-toggle"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-    >
-      <i class="fa-solid fa-bars"></i>
-    </button>
     <nav class="header-buttons">
       <a href="info.html" class="header-button btn-dark">Cennik</a>
       <a
