@@ -422,39 +422,39 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('.header-buttons');
-
-      toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', isOpen);
-      });
-
-      fetch('images_Spa.json')
-        .then(res => res.json())
-        .then(images => {
-          const wrapper = document.getElementById('spa-carousel-wrapper');
-          images.forEach(src => {
-            const slide = document.createElement('div');
-            slide.className = 'swiper-slide';
-            slide.innerHTML = `<img src="images_Spa/${src}" alt="Zdjęcie zwierzaka">`;
-            wrapper.appendChild(slide);
-          });
-          new Swiper('.swiper', {
-            direction: 'horizontal',
-            slidesPerView: 1,
-            spaceBetween: 16,
-            loop: true,
-            autoplay: { delay: 2000, disableOnInteraction: false },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            breakpoints: {
-              600: { slidesPerView: 2 },
-              900: { slidesPerView: 3 }
-            }
-          });
-        })
-        .catch(err => console.error('Błąd ładowania obrazów:', err));
+  const toggle = document.querySelector('.menu-toggle');
+  const nav    = document.querySelector('.header-buttons');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
     });
+  }
+
+  // dopiero teraz fetch + Swiper
+  fetch('images_Spa.json')
+    .then(res => res.json())
+    .then(images => {
+      const wrapper = document.getElementById('spa-carousel-wrapper');
+      images.forEach(src => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `<img src="images_Spa/${src}" alt="Zdjęcie zwierzaka">`;
+        wrapper.appendChild(slide);
+      });
+      new Swiper('.swiper', {
+        direction: 'horizontal',
+        slidesPerView: 1,
+        spaceBetween: 16,
+        loop: true,
+        autoplay: { delay: 2000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        breakpoints: { 600: { slidesPerView: 2 }, 900: { slidesPerView: 3 } }
+      });
+    })
+    .catch(err => console.error('Błąd ładowania obrazów:', err));
+});
+
   </script>
 </body>
 </html>

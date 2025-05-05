@@ -415,11 +415,12 @@
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('.header-buttons');
-
-      toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', isOpen);
-      });
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const isOpen = nav.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+      }
 
       fetch('images_Hotel.json')
         .then(res => res.json())
@@ -438,10 +439,7 @@
             loop: true,
             autoplay: { delay: 2000, disableOnInteraction: false },
             pagination: { el: '.swiper-pagination', clickable: true },
-            breakpoints: {
-              600: { slidesPerView: 2 },
-              900: { slidesPerView: 3 }
-            }
+            breakpoints: { 600: { slidesPerView: 2 }, 900: { slidesPerView: 3 } }
           });
         })
         .catch(err => console.error('Błąd ładowania obrazów:', err));
